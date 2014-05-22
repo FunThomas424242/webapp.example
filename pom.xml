@@ -10,11 +10,77 @@
         <maven>3.0.5</maven>
     </prerequisites>
 
+
+    <url>http://funthomas424242.github.io/webapp.example/index.html</url>
+
+    <issueManagement>
+        <system>trac</system>
+        <url>https://github.com/FunThomas424242/webapp.example/issues</url>
+    </issueManagement>
+
+    <ciManagement>
+        <system>travis-ci</system>
+        <url>https://travis-ci.org/FunThomas424242/webapp.example</url>
+    </ciManagement>
+
+    <scm>
+        <connection>scm:git:https://github.com/FunThomas424242/webapp.example.git</connection>
+        <developerConnection>scm:git:https://github.com/FunThomas424242/webapp.example.git</developerConnection>
+        <url>https://github.com/FunThomas424242/webapp.example</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <roles>
+                <role>project-owner</role>
+                <role>developer</role>
+            </roles>
+            <email>funthomas424242@gmail.com</email>
+            <name>FunThomas424242</name>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>GNU LESSER GENERAL PUBLIC LICENSE v3.0</name>
+            <distribution>repo</distribution>
+            <url>http://www.gnu.org/licenses/lgpl-3.0.html</url>
+        </license>
+    </licenses>
+
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <jbehave.version>4.0-beta-7</jbehave.version>
+        <jbehave.site.version>3.2</jbehave.site.version>
+        <junit.version>4.11</junit.version>
+        <github.maventools.version>0.9</github.maventools.version>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
         <failOnMissingWebXml>false</failOnMissingWebXml>
     </properties>
+
+    <profiles>
+        <profile>
+            <id>local</id>
+            <properties>
+                <github.global.server>github</github.global.server>
+                <testrun>true</testrun>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>remote</id>
+            <properties>
+                <github.global.userName>${env.USER}</github.global.userName>
+                <github.global.password>${env.PASSWORD}</github.global.password>
+                <testrun>false</testrun>
+            </properties>
+        </profile>
+    </profiles>
+
 
     <dependencies>
         <dependency>
@@ -23,11 +89,36 @@
             <version>7.0</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jbehave</groupId>
+            <artifactId>jbehave-core</artifactId>
+            <version>${jbehave.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>jbehave-junit-runner</artifactId>
+            <version>1.1.0</version>
+        </dependency>
     </dependencies>
 
 
     <build>
         <finalName>webapp.example</finalName>
+
+        <testResources>
+            <testResource>
+                <directory>src/test/java</directory>
+                <includes>
+                    <include>**/*.story</include>
+                </includes>
+            </testResource>
+        </testResources>
+
 
         <plugins>
             <plugin>
@@ -44,6 +135,140 @@
                     </dependency>
                 </dependencies>
             </plugin>
+            
+            <plugin>
+                <groupId>com.github.github</groupId>
+                <artifactId>site-maven-plugin</artifactId>
+                <version>${github.maventools.version}</version>
+                <configuration>
+                    <message>Building site for ${project.version}</message>
+                    <dryRun>${testrun}</dryRun>
+                    <noJekyll>true</noJekyll>
+                    <merge>true</merge>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>site</goal>
+                        </goals>
+                        <phase>install</phase>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.jbehave</groupId>
+                <artifactId>jbehave-maven-plugin</artifactId>
+                <configuration>
+                    <scope>test</scope>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>run-stories-as-embeddables</id>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>run-stories-as-embeddables</goal>
+                        </goals>
+                        <configuration>
+                            <includes>
+                                <include>**/*Scenarios.java</include>
+                            </includes>
+                            <ignoreFailureInStories>true</ignoreFailureInStories>
+                            <ignoreFailureInView>false</ignoreFailureInView>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>map-stories</id>
+                        <phase>integration-test</phase>
+                        <configuration>
+                            <scope>test</scope>
+                            <includes>
+                                <include>**/*Map.java</include>
+                            </includes>
+                            <metaFilters>
+                                <metaFilter>+author *</metaFilter>
+                                <metaFilter>themes *</metaFilter>
+                                <metaFilter>-skip</metaFilter>
+                            </metaFilters>
+                        </configuration>
+                        <goals>
+                            <goal>map-stories-as-embeddables</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>unpack-jbehave-site-resources</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                        <configuration>
+                            <overwriteReleases>false</overwriteReleases>
+                            <overwriteSnapshots>true</overwriteSnapshots>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>org.jbehave.site</groupId>
+                                    <artifactId>jbehave-site-resources</artifactId>
+                                    <version>${jbehave.site.version}</version>
+                                    <type>zip</type>
+                                    <outputDirectory>
+                                        ${project.build.directory}/site/jbehave/view</outputDirectory>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>unpack-jbehave-reports-resources</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                        <configuration>
+                            <overwriteReleases>false</overwriteReleases>
+                            <overwriteSnapshots>true</overwriteSnapshots>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>org.jbehave</groupId>
+                                    <artifactId>jbehave-core</artifactId>
+                                    <version>${jbehave.version}</version>
+                                    <outputDirectory>${project.build.directory}/site/jbehave/view</outputDirectory>
+                                    <includes>**\/*.css,**\/*.ftl,**\/*.js</includes>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.doxia</groupId>
+                        <artifactId>doxia-module-markdown</artifactId>
+                        <version>1.5</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <generateSitemap>true</generateSitemap>
+                    <locales>de</locales>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>sitegen</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>site</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            
             
              <!-- Enable Jetty container (use jetty:run to execute) -->
             <plugin>
@@ -176,6 +401,41 @@
             
             
         </plugins>
+        <pluginManagement>
+            <plugins>
+                <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+                <plugin>
+                    <groupId>org.eclipse.m2e</groupId>
+                    <artifactId>lifecycle-mapping</artifactId>
+                    <version>1.0.0</version>
+                    <configuration>
+                        <lifecycleMappingMetadata>
+                            <pluginExecutions>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>
+                                            org.apache.maven.plugins
+                                        </groupId>
+                                        <artifactId>
+                                            maven-dependency-plugin
+                                        </artifactId>
+                                        <versionRange>
+                                            [2.1,)
+                                        </versionRange>
+                                        <goals>
+                                            <goal>unpack</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore></ignore>
+                                    </action>
+                                </pluginExecution>
+                            </pluginExecutions>
+                        </lifecycleMappingMetadata>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 
 </project>
