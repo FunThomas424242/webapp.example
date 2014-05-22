@@ -44,6 +44,137 @@
                     </dependency>
                 </dependencies>
             </plugin>
+            
+             <!-- Enable Jetty container (use jetty:run to execute) -->
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>maven-jetty-plugin</artifactId>
+                
+                <configuration>
+                    <scanIntervalSeconds>10</scanIntervalSeconds>
+                    <stopKey>foo</stopKey>
+                    <stopPort>9999</stopPort>
+                    <!--jettyConfig>jetty.xml</jettyConfig-->
+
+                    <!--<webAppSourceDirectory>${basedir}/war/src/main/webapp</webAppSourceDirectory>-->
+                    <!--<classesDirectory>${basedir}/war/target/classes</classesDirectory>-->
+                    <!--<webXml>${basedir}/war/src/main/webapp/WEB-INF/web.xml</webXml>-->
+                    <!--<tmpDir>${basedir}/war/target</tmpDir>-->
+                    <!--webApp>${basedir}/war/target/yourWarName.war</webApp-->
+
+                    <!-- set OpenEJB configuration home
+                    <systemProperties>
+                        <systemProperty>
+                            <name>openejb.base</name>
+                            <value>${basedir}/../openejb</value>
+                        </systemProperty>
+                    </systemProperties>
+                     -->
+                     
+                </configuration>
+                
+                <dependencies>
+                    <!-- SLF4J API
+                    <dependency>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-api</artifactId>
+                       
+                    </dependency>
+                    -->
+
+                    <!-- Deploy our required library versions -->
+                    <dependency>
+                        <groupId>commons-lang</groupId>
+                        <artifactId>commons-lang</artifactId>
+                        <version>2.4</version>
+                        <optional>false</optional>
+                    </dependency>
+
+                    <!-- Deploy JSF libs 
+                    <dependency>
+                        <groupId>javax.faces</groupId>
+                        <artifactId>jsf-api</artifactId>
+                        <version>${jsf.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>javax.faces</groupId>
+                        <artifactId>jsf-impl</artifactId>
+                        <version>${jsf.version}</version>
+                    </dependency>
+                    -->
+                    
+
+                    <!-- Deploy flexive JSF environment 
+                    <dependency>
+                        <groupId>com.flexive</groupId>
+                        <artifactId>flexive-plugin-jsf-core</artifactId>
+                        <version>${flexive.version}</version>
+                    </dependency>
+                    -->
+                    
+
+                    <!-- Deploy flexive EJBs 
+
+                    <dependency>
+                        <groupId>com.flexive</groupId>
+                        <artifactId>flexive-ejb</artifactId>
+                        <version>${flexive.version}</version>
+                    </dependency>
+
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>${mysql.connector.version}</version>
+                    </dependency>
+                    -->
+
+                    <!-- Deploy JBoss common library 
+                    <dependency>
+                        <groupId>org.jboss</groupId>
+                        <artifactId>jboss-common-core</artifactId>
+                        <version>2.2.22.GA</version>
+                    </dependency>
+                    -->
+
+                    <!-- Deploy our EJB and shared classes 
+                    <dependency>
+                        <groupId>gh.funthomas424242</groupId>
+                        <artifactId>shared</artifactId>
+                        <version>1.0-SNAPSHOT</version>
+                        <type>jar</type>
+                    </dependency>
+
+                    <dependency>
+                        <groupId>gh.funthomas424242</groupId>
+                        <artifactId>ejb-jar</artifactId>
+                        <type>ejb</type>
+                        <version>1.0-SNAPSHOT</version>
+                    </dependency>
+                    -->
+
+                    <!-- Deploy flexive backend classes 
+                    <dependency>
+                        <groupId>com.flexive</groupId>
+                        <artifactId>flexive-backend</artifactId>
+                        <version>${flexive.version}</version>
+                    </dependency>
+                    -->
+
+                    <!-- Deploy global configuration for division setup (/flexive-backend-war/globalconfig/index.xhtml) -->
+
+
+                    <!-- Deploy H2 database support 
+                    <dependency>
+                        <groupId>com.flexive</groupId>
+                        <artifactId>flexive-h2</artifactId>
+                        <version>${flexive.version}</version>
+                    </dependency>
+                    -->
+
+                </dependencies>
+            </plugin>
+            
+            
         </plugins>
     </build>
 
