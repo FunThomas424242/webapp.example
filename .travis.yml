@@ -1,10 +1,8 @@
 env:
   global:
-  - secure: I2TyTf4/9EQALzvWSx7EwkR3blw16iSVmgL4KsFQtrrjXNKMPGuOYkWYWzSN+MfiF2uEFLSgTH+/vFwGUq0Mvi9nebbvwogz8hYeJqtsomU+6Rch4ppoWc3oDRfiRiUlQYhT2Ua2vH9wzfUcUBMM85GZNeG4+ws/SccsBa+ZmBw=
-  - secure: ivSvaSRwFSezwK3yvlZgjVeTT2ie+Faj4wGySef22quy12Izp1PaqlDiwctcJvnubqD8DkjAUjHKRlA3H4exlRluEiN8L+EV6A8Jg0XfWsxjzJPhoI6x9s3xwlyRZbnCemL27bZmdSPu87/qjkPgMb8vtF5gsRJjpaU7mdM/3IU=
-  
-# language: java
+  - secure: Bga6s3Jsri1HK2w5GKRfBheHJA14vH/RcMsy5BGCTeKDzNiADME0GNE2fCe2Y8PM+qyHQAi374f6ucwciRVpbgcWhew84bFgAZ7bFJd0ty+H4PQQjH8dCAOHacynLPyp2CKni8wtH5Reh58hpwa/21+yU7REcD2FJHGG5OBFcTc=
+  - secure: ZCxEY5/7ap9YH+DfQ0HRh7DS+yAfNQvknKyKDQ0RX5iDkuz4y3+ylgwSfzMun1C5DuKB4izdHIj0v+AJxejtrrJ7j5xJPW8/gW/OCBq0/R7j286q7un1KarAXyF/NJJ37nlIi8rjMQGOxYcJ20FGptWNpZIi2zmLQkMjA7FTsxk=
 jdk:
-  - openjdk7
+- openjdk7
 script:
-  - mvn -Premote clean install
+- mvn -Premote clean install
