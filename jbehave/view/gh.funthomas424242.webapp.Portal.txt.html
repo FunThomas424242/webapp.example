@@ -19,73 +19,9 @@ As a Koch
 I want to alle notwendigen Daten in einer Webanwendung eingeben können
 Damit ich diese anschließend als Kochbuch Projekt exportieren kann.
 Scenario: Startseite
-Gegeben sei die laufende Webanwendung (PENDING)
-Wenn der URL http://localhost:8080 aufgerufen wird (PENDING)
-Dann wird ein Link zur Welcome Seite angezeigt. (PENDING)
-@Given("sei die laufende Webanwendung")
-@Pending
-public void givenSeiDieLaufendeWebanwendung() {
-  // AUSSTEHEND
-}
-
-@When("der URL http://localhost:8080 aufgerufen wird")
-@Pending
-public void whenDerURLHttplocalhost8080AufgerufenWird() {
-  // AUSSTEHEND
-}
-
-@Then("wird ein Link zur Welcome Seite angezeigt.")
-@Pending
-public void thenWirdEinLinkZurWelcomeSeiteAngezeigt() {
-  // AUSSTEHEND
-}
-
-
-Scenario: Welcome Seite
-Gegeben sei die laufende Webanwendung (PENDING)
-Wenn der URL http://localhost:8080/webapp.example/ aufgerufen wird (PENDING)
-Dann wird die Seite http://localhost:8080/webapp.example/index.html angezeigt. (PENDING)
-@Given("sei die laufende Webanwendung")
-@Pending
-public void givenSeiDieLaufendeWebanwendung() {
-  // AUSSTEHEND
-}
-
-@When("der URL http://localhost:8080/webapp.example/ aufgerufen wird")
-@Pending
-public void whenDerURLHttplocalhost8080webappexampleAufgerufenWird() {
-  // AUSSTEHEND
-}
-
-@Then("wird die Seite http://localhost:8080/webapp.example/index.html angezeigt.")
-@Pending
-public void thenWirdDieSeiteHttplocalhost8080webappexampleindexhtmlAngezeigt() {
-  // AUSSTEHEND
-}
-
-
-Scenario: Aufbau der Welcome Seite
-Gegeben sei die laufende Webanwendung (PENDING)
-Wenn der URL http://localhost:8080/webapp.example/index.html aufgerufen wird (PENDING)
-Dann wird eine Überschrift mit dem Text Willkommen angezeigt. (PENDING)
-@Given("sei die laufende Webanwendung")
-@Pending
-public void givenSeiDieLaufendeWebanwendung() {
-  // AUSSTEHEND
-}
-
-@When("der URL http://localhost:8080/webapp.example/index.html aufgerufen wird")
-@Pending
-public void whenDerURLHttplocalhost8080webappexampleindexhtmlAufgerufenWird() {
-  // AUSSTEHEND
-}
-
-@Then("wird eine \u00DCberschrift mit dem Text Willkommen angezeigt.")
-@Pending
-public void thenWirdEineÜberschriftMitDemTextWillkommenAngezeigt() {
-  // AUSSTEHEND
-}
-
+Gegeben sei als aktuelle Seite die Startseite.
+Wenn die Seite betrachtet wird
+Dann enthält diese unter der Id welcome eine Überschrift mit folgendem Text Beispiel Web-Anwendung.
 
 
 

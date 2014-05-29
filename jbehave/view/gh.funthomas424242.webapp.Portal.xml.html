@@ -19,73 +19,9 @@
 Damit ich diese anschlie&#223;end als Kochbuch Projekt exportieren kann.</iWantTo>
 </narrative>
 <scenario keyword="Scenario:" title="Startseite">
-<step outcome="pending" keyword="PENDING">Gegeben sei die laufende Webanwendung</step>
-<step outcome="pending" keyword="PENDING">Wenn der URL http://localhost:8080 aufgerufen wird</step>
-<step outcome="pending" keyword="PENDING">Dann wird ein Link zur Welcome Seite angezeigt.</step>
-<pendingMethod>@Given(&quot;sei die laufende Webanwendung&quot;)
-@Pending
-public void givenSeiDieLaufendeWebanwendung() {
-  // AUSSTEHEND
-}
-</pendingMethod>
-<pendingMethod>@When(&quot;der URL http://localhost:8080 aufgerufen wird&quot;)
-@Pending
-public void whenDerURLHttplocalhost8080AufgerufenWird() {
-  // AUSSTEHEND
-}
-</pendingMethod>
-<pendingMethod>@Then(&quot;wird ein Link zur Welcome Seite angezeigt.&quot;)
-@Pending
-public void thenWirdEinLinkZurWelcomeSeiteAngezeigt() {
-  // AUSSTEHEND
-}
-</pendingMethod>
-</scenario>
-<scenario keyword="Scenario:" title="Welcome Seite">
-<step outcome="pending" keyword="PENDING">Gegeben sei die laufende Webanwendung</step>
-<step outcome="pending" keyword="PENDING">Wenn der URL http://localhost:8080/webapp.example/ aufgerufen wird</step>
-<step outcome="pending" keyword="PENDING">Dann wird die Seite http://localhost:8080/webapp.example/index.html angezeigt.</step>
-<pendingMethod>@Given(&quot;sei die laufende Webanwendung&quot;)
-@Pending
-public void givenSeiDieLaufendeWebanwendung() {
-  // AUSSTEHEND
-}
-</pendingMethod>
-<pendingMethod>@When(&quot;der URL http://localhost:8080/webapp.example/ aufgerufen wird&quot;)
-@Pending
-public void whenDerURLHttplocalhost8080webappexampleAufgerufenWird() {
-  // AUSSTEHEND
-}
-</pendingMethod>
-<pendingMethod>@Then(&quot;wird die Seite http://localhost:8080/webapp.example/index.html angezeigt.&quot;)
-@Pending
-public void thenWirdDieSeiteHttplocalhost8080webappexampleindexhtmlAngezeigt() {
-  // AUSSTEHEND
-}
-</pendingMethod>
-</scenario>
-<scenario keyword="Scenario:" title="Aufbau der Welcome Seite">
-<step outcome="pending" keyword="PENDING">Gegeben sei die laufende Webanwendung</step>
-<step outcome="pending" keyword="PENDING">Wenn der URL http://localhost:8080/webapp.example/index.html aufgerufen wird</step>
-<step outcome="pending" keyword="PENDING">Dann wird eine &#220;berschrift mit dem Text Willkommen angezeigt.</step>
-<pendingMethod>@Given(&quot;sei die laufende Webanwendung&quot;)
-@Pending
-public void givenSeiDieLaufendeWebanwendung() {
-  // AUSSTEHEND
-}
-</pendingMethod>
-<pendingMethod>@When(&quot;der URL http://localhost:8080/webapp.example/index.html aufgerufen wird&quot;)
-@Pending
-public void whenDerURLHttplocalhost8080webappexampleindexhtmlAufgerufenWird() {
-  // AUSSTEHEND
-}
-</pendingMethod>
-<pendingMethod>@Then(&quot;wird eine \u00DCberschrift mit dem Text Willkommen angezeigt.&quot;)
-@Pending
-public void thenWirdEine&#220;berschriftMitDemTextWillkommenAngezeigt() {
-  // AUSSTEHEND
-}
-</pendingMethod>
+<step outcome="successful">Gegeben sei als aktuelle Seite die Startseite.</step>
+<step outcome="successful">Wenn die Seite betrachtet wird</step>
+<step outcome="successful">Dann enth&#228;lt diese unter der Id <parameter>welcome</parameter> eine &#220;berschrift mit folgendem Text Beispiel Web-Anwendung.</step>
 </scenario>
 </story>
 
