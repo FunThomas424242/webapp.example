@@ -34,7 +34,7 @@ public class PortalScenarios extends JUnitStories {
     public PortalScenarios() {
 
         this.configuration = new ConfigurationHelper()
-                .getSeleniumConfiguration();
+                .getProjectSpecificConfiguration();
 
         configuredEmbedder().useExecutorService(
                 new SameThreadExecutors().create(configuredEmbedder()

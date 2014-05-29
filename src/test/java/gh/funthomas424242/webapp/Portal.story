@@ -15,5 +15,5 @@ Meta:
 
 Gegeben sei als aktuelle Seite die Startseite.
 Wenn die Seite betrachtet wird
-Dann enthält diese unter der welcome eine Überschrift mit folgendem Text Beispiel Web-Anwendung.
+Dann enthält diese unter der Id welcome eine Überschrift mit folgendem Text Beispiel Web-Anwendung.
 

@@ -49,7 +49,7 @@ public class PortalSteps extends Steps {
         this.searchElement = element;
     }
 
-    @Then("enthält diese unter der $id eine Überschrift mit folgendem Text $text.")
+    @Then("enthält diese unter der Id $id eine Überschrift mit folgendem Text $text.")
     public void containsSection(final String id, final String text) {
         final String foundText = this.currentPage.findElement(By.id(id))
                 .getText();
