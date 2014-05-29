@@ -2,15 +2,21 @@ package gh.funthomas424242.webapp;
 
 import gh.funthomas424242.webapp.jbehave.helper.ConfigurationHelper;
 import gh.funthomas424242.webapp.jbehave.helper.StoryPfadBuilder;
+import gh.funthomas424242.webapp.selenium.helper.Pages;
 
 import java.util.List;
 
 import org.jbehave.core.configuration.Configuration;
-import org.jbehave.core.embedder.EmbedderControls;
+import org.jbehave.core.embedder.executors.SameThreadExecutors;
 import org.jbehave.core.io.StoryFinder;
 import org.jbehave.core.junit.JUnitStories;
 import org.jbehave.core.steps.InjectableStepsFactory;
 import org.jbehave.core.steps.InstanceStepsFactory;
+import org.jbehave.web.selenium.PerStoriesWebDriverSteps;
+import org.jbehave.web.selenium.PropertyWebDriverProvider;
+import org.jbehave.web.selenium.WebDriverProvider;
+import org.jbehave.web.selenium.WebDriverScreenshotOnFailure;
+import org.jbehave.web.selenium.WebDriverSteps;
 import org.junit.runner.RunWith;
 
 import de.codecentric.jbehave.junit.monitoring.JUnitReportingRunner;
@@ -20,22 +26,31 @@ public class PortalScenarios extends JUnitStories {
 
     private final Configuration configuration;
 
-    public PortalScenarios() {
-        super();
-        this.configuration = new ConfigurationHelper()
-                .getProjectSpecificConfiguration();
+    private final WebDriverProvider driverProvider = new PropertyWebDriverProvider();
+    private final WebDriverSteps lifecycleSteps = new PerStoriesWebDriverSteps(
+            this.driverProvider);
+    private final Pages pages = new Pages(this.driverProvider);
 
-        final EmbedderControls embedderControls = configuredEmbedder()
-                .embedderControls();
-        embedderControls.doBatch(false);
-        embedderControls.doGenerateViewAfterStories(true);
-        embedderControls.doIgnoreFailureInStories(false);
-        embedderControls.doIgnoreFailureInView(false);
-        embedderControls.doSkip(false);
-        embedderControls.doVerboseFailures(false);
-        embedderControls.doVerboseFiltering(false);
-        embedderControls.useStoryTimeoutInSecs(300);
-        embedderControls.useThreads(1);
+    public PortalScenarios() {
+
+        this.configuration = new ConfigurationHelper()
+                .getSeleniumConfiguration();
+
+        configuredEmbedder().useExecutorService(
+                new SameThreadExecutors().create(configuredEmbedder()
+                        .embedderControls()));
+
+        // final EmbedderControls embedderControls = configuredEmbedder()
+        // .embedderControls();
+        // embedderControls.doBatch(false);
+        // embedderControls.doGenerateViewAfterStories(true);
+        // embedderControls.doIgnoreFailureInStories(false);
+        // embedderControls.doIgnoreFailureInView(false);
+        // embedderControls.doSkip(false);
+        // embedderControls.doVerboseFailures(false);
+        // embedderControls.doVerboseFiltering(false);
+        // embedderControls.useStoryTimeoutInSecs(300);
+        // embedderControls.useThreads(1);
     }
 
     @Override
@@ -45,7 +60,10 @@ public class PortalScenarios extends JUnitStories {
 
     @Override
     public InjectableStepsFactory stepsFactory() {
-        return new InstanceStepsFactory(configuration(), new PortalSteps());
+        return new InstanceStepsFactory(this.configuration(), new PortalSteps(
+                this.pages), this.lifecycleSteps,
+                new WebDriverScreenshotOnFailure(this.driverProvider, this
+                        .configuration().storyReporterBuilder()));
     }
 
     @Override

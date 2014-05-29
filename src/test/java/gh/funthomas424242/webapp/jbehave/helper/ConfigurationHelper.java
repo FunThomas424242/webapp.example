@@ -21,6 +21,12 @@ import org.jbehave.core.steps.ParameterControls;
 import org.jbehave.core.steps.ParameterConverters;
 import org.jbehave.core.steps.SilentStepMonitor;
 import org.jbehave.core.steps.StepFinder;
+import org.jbehave.web.selenium.ContextView;
+import org.jbehave.web.selenium.LocalFrameContextView;
+import org.jbehave.web.selenium.SeleniumConfiguration;
+import org.jbehave.web.selenium.SeleniumContext;
+import org.jbehave.web.selenium.SeleniumStepMonitor;
+import org.jbehave.web.selenium.WebDriverProvider;
 
 import com.thoughtworks.paranamer.NullParanamer;
 
@@ -107,5 +113,23 @@ public class ConfigurationHelper {
         // .withFailureTrace(true).withFailureTraceCompression(true)
         // .withCrossReference(this.xref)
         ;
+    }
+
+    public Configuration getSeleniumConfiguration() {
+        final SeleniumConfiguration configuration = new SeleniumConfiguration() {
+        };
+        final SeleniumContext seleniumContext = new SeleniumContext();
+        final WebDriverProvider webDriverProvider = new org.jbehave.web.selenium.PropertyWebDriverProvider();
+        final ContextView contextView = new LocalFrameContextView().sized(500,
+                100);
+
+        // configuration.useSelenium(selenium);
+        configuration.useSeleniumContext(seleniumContext);
+        configuration.useWebDriverProvider(webDriverProvider);
+        configuration.useStepMonitor(new SeleniumStepMonitor(contextView,
+                seleniumContext, new SilentStepMonitor()));
+        //
+        configuration.useStoryReporterBuilder(getReportBuilder());
+        return configuration;
     }
 }
