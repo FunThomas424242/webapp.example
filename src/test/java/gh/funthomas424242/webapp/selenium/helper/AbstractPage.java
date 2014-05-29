@@ -1,46 +1,68 @@
 package gh.funthomas424242.webapp.selenium.helper;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.fail;
-
-import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.jbehave.web.selenium.WebDriverPage;
 import org.jbehave.web.selenium.WebDriverProvider;
+import org.openqa.selenium.By;
 
 public abstract class AbstractPage extends WebDriverPage {
+
+    abstract public String getPageUrl();
 
     public AbstractPage(final WebDriverProvider driverProvider) {
         super(driverProvider);
     }
 
-    public void found(final String text) {
-        found(getPageSource(), text);
+    public boolean isCurrentPage() {
+        final String url = this.getCurrentUrl();
+        return getPageUrl().equals(url);
     }
 
-    public void found(final String pageSource, final String text) {
-        if (!pageSource.contains(escapeHtml(text))) {
-            fail("Text: '" + text + "' not found in page '" + pageSource + "'");
-        }
+    public String findUeberschrift(final String id) {
+        return findElement(By.id(id)).getText();
     }
 
-    public void found(final List<String> texts) {
-        for (final String text : texts) {
-            found(text);
-        }
+    public AbstractPage getEntryPage() {
+        return new EntryPage(getDriverProvider());
     }
 
-    public void notFound(final String text) {
-        notFound(getPageSource(), text);
+    public WelcomePage getWelcomePage() {
+        return new WelcomePage(getDriverProvider());
     }
 
-    public void notFound(final String pageSource, final String text) {
-        assertThat(pageSource.contains(escapeHtml(text)), is(false));
+    public AbstractPage open() {
+        get(getPageUrl());
+        manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        return this;
     }
 
-    private String escapeHtml(final String text) {
-        return text.replace("<", "&lt;").replace(">", "&gt;");
-    }
+    // public void found(final String text) {
+    // found(getPageSource(), text);
+    // }
+    //
+    // public void found(final String pageSource, final String text) {
+    // if (!pageSource.contains(escapeHtml(text))) {
+    // fail("Text: '" + text + "' not found in page '" + pageSource + "'");
+    // }
+    // }
+    //
+    // public void found(final List<String> texts) {
+    // for (final String text : texts) {
+    // found(text);
+    // }
+    // }
+    //
+    // public void notFound(final String text) {
+    // notFound(getPageSource(), text);
+    // }
+    //
+    // public void notFound(final String pageSource, final String text) {
+    // assertThat(pageSource.contains(escapeHtml(text)), is(false));
+    // }
+    //
+    // private String escapeHtml(final String text) {
+    // return text.replace("<", "&lt;").replace(">", "&gt;");
+    // }
 
 }

@@ -286,7 +286,7 @@
                 <executions>
                     <execution>
                         <id>sitegen</id>
-                        <phase>package</phase>
+                        <phase>post-integration-test</phase>
                         <goals>
                             <goal>site</goal>
                         </goals>

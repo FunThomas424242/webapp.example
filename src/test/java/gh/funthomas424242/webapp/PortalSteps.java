@@ -1,9 +1,8 @@
 package gh.funthomas424242.webapp;
 
 import gh.funthomas424242.webapp.selenium.helper.AbstractPage;
-import gh.funthomas424242.webapp.selenium.helper.Pages;
-
-import java.util.Stack;
+import gh.funthomas424242.webapp.selenium.helper.LoginPage;
+import gh.funthomas424242.webapp.selenium.helper.WelcomePage;
 
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
@@ -14,19 +13,25 @@ import org.openqa.selenium.By;
 
 public class PortalSteps extends Steps {
 
-    private final Pages pages;
     private AbstractPage currentPage;
 
-    public PortalSteps(final Pages pages) {
-        this.pages = pages;
+    public PortalSteps(final AbstractPage page) {
+        this.currentPage = page;
     }
 
-    private Stack<String> stackUnderTest;
-    private String searchElement;
+    @Given("sei die Webserver Übersichtsseite.")
+    public void atServerHome() {
+        this.currentPage = this.currentPage.getEntryPage().open();
+    }
 
-    @Given("sei als aktuelle Seite die Startseite.")
-    public void navHome() {
-        this.currentPage = this.pages.home().open();
+    @Given("sei als aktuelle Seite die Startseite (welcome page).")
+    public void atWeclcomeFile() {
+        this.currentPage = this.currentPage.getWelcomePage().open();
+    }
+
+    @When("der erste Link geklickt wird")
+    public void anElementIsAdded() {
+        this.currentPage.findElement(By.tagName("a")).click();
     }
 
     @When("die Seite betrachtet wird")
@@ -34,19 +39,9 @@ public class PortalSteps extends Steps {
 
     }
 
-    @When("das Element $element hinzugefügt wird")
-    public void anElementIsAdded(final String element) {
-        this.stackUnderTest.push(element);
-    }
-
-    @When("das oberste Element vom Stack entfernt wird")
-    public void removeLastElement() {
-        this.stackUnderTest.pop();
-    }
-
-    @When("das Element $element gesucht wird")
-    public void searchForElement(final String element) {
-        this.searchElement = element;
+    @When("der Link $linkTitel geklickt wird")
+    public void anElementIsAdded(final String linkText) {
+        this.currentPage.findElement(By.linkText(linkText)).click();
     }
 
     @Then("enthält diese unter der Id $id eine Überschrift mit folgendem Text $text.")
@@ -56,13 +51,21 @@ public class PortalSteps extends Steps {
         Assert.assertEquals(text, foundText);
     }
 
-    @Then("liegt das Element $word ganz oben auf dem Stack.")
-    public void theResultingElementShouldBe(final String word) {
-        Assert.assertEquals(1, this.stackUnderTest.search(word));
+    @Then("wird zur Welcome Seite navigiert.")
+    public void currentPageIsWelcome() {
+        Assert.assertEquals(WelcomePage.PAGE_URL,
+                this.currentPage.getCurrentUrl());
     }
 
-    @Then("ist die erwartete Position $pos.")
-    public void thePositionReturnedShouldBe(final int pos) {
-        Assert.assertEquals(pos, this.stackUnderTest.search(this.searchElement));
+    @Then("wird zur Login Seite navigiert.")
+    public void currentPageIsLogin() {
+        Assert.assertEquals(LoginPage.PAGE_URL,
+                this.currentPage.getCurrentUrl());
     }
+
+    @Then("wird zur Seite $fileName navigiert.")
+    public void theResultingElementShouldBe(final String fileName) {
+        Assert.assertEquals(fileName, this.currentPage.getCurrentUrl());
+    }
+
 }

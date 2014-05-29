@@ -2,7 +2,8 @@ package gh.funthomas424242.webapp;
 
 import gh.funthomas424242.webapp.jbehave.helper.ConfigurationHelper;
 import gh.funthomas424242.webapp.jbehave.helper.StoryPfadBuilder;
-import gh.funthomas424242.webapp.selenium.helper.Pages;
+import gh.funthomas424242.webapp.selenium.helper.AbstractPage;
+import gh.funthomas424242.webapp.selenium.helper.EntryPage;
 
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class PortalScenarios extends JUnitStories {
     private final WebDriverProvider driverProvider = new PropertyWebDriverProvider();
     private final WebDriverSteps lifecycleSteps = new PerStoriesWebDriverSteps(
             this.driverProvider);
-    private final Pages pages = new Pages(this.driverProvider);
+    private final AbstractPage pages = new EntryPage(this.driverProvider);
 
     public PortalScenarios() {
 
