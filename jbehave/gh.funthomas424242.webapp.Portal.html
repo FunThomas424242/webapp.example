@@ -12,9 +12,21 @@
 Damit ich diese anschlie&szlig;end als Kochbuch Projekt exportieren kann.</div>
 </div>
 <div class="scenario">
-<h2>Scenario: Startseite</h2>
-<div class="step successful">Gegeben sei als aktuelle Seite die Startseite.</div>
+<h2>Scenario: Start Seite</h2>
+<div class="step successful">Gegeben sei die Webserver &Uuml;bersichtsseite.</div>
+<div class="step successful">Wenn der erste Link geklickt wird</div>
+<div class="step successful">Dann wird zur Welcome Seite navigiert.</div>
+</div>
+<div class="scenario">
+<h2>Scenario: Welcome Seite</h2>
+<div class="step successful">Gegeben sei als aktuelle Seite die Startseite (welcome page).</div>
 <div class="step successful">Wenn die Seite betrachtet wird</div>
 <div class="step successful">Dann enth&auml;lt diese unter der Id <span class="step parameter">welcome</span> eine &Uuml;berschrift mit folgendem Text Beispiel Web-Anwendung.</div>
+</div>
+<div class="scenario">
+<h2>Scenario: Login Seite</h2>
+<div class="step successful">Gegeben sei als aktuelle Seite die Startseite (welcome page).</div>
+<div class="step successful">Wenn der Link <span class="step parameter">Anmelden</span> geklickt wird</div>
+<div class="step successful">Dann wird zur Login Seite navigiert.</div>
 </div>
 </div>

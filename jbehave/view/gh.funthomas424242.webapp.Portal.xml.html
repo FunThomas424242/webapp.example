@@ -18,10 +18,20 @@
   <iWantTo keyword="I want to">alle notwendigen Daten in einer Webanwendung eingeben k&#246;nnen
 Damit ich diese anschlie&#223;end als Kochbuch Projekt exportieren kann.</iWantTo>
 </narrative>
-<scenario keyword="Scenario:" title="Startseite">
-<step outcome="successful">Gegeben sei als aktuelle Seite die Startseite.</step>
+<scenario keyword="Scenario:" title="Start Seite">
+<step outcome="successful">Gegeben sei die Webserver &#220;bersichtsseite.</step>
+<step outcome="successful">Wenn der erste Link geklickt wird</step>
+<step outcome="successful">Dann wird zur Welcome Seite navigiert.</step>
+</scenario>
+<scenario keyword="Scenario:" title="Welcome Seite">
+<step outcome="successful">Gegeben sei als aktuelle Seite die Startseite (welcome page).</step>
 <step outcome="successful">Wenn die Seite betrachtet wird</step>
 <step outcome="successful">Dann enth&#228;lt diese unter der Id <parameter>welcome</parameter> eine &#220;berschrift mit folgendem Text Beispiel Web-Anwendung.</step>
+</scenario>
+<scenario keyword="Scenario:" title="Login Seite">
+<step outcome="successful">Gegeben sei als aktuelle Seite die Startseite (welcome page).</step>
+<step outcome="successful">Wenn der Link <parameter>Anmelden</parameter> geklickt wird</step>
+<step outcome="successful">Dann wird zur Login Seite navigiert.</step>
 </scenario>
 </story>
 
