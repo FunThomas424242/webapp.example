@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<!DOCTYPE coverage SYSTEM 'http://cobertura.sourceforge.net/xml/coverage-04.dtd'>
+<!-- Generated using saga-core (http://timurstrekalov.github.com/saga/saga-core/) version 1.5.3 -->
+<coverage branch-rate="0.0" branches-covered="0" branches-valid="0" complexity="0" line-rate="NaN" lines-valid="0" lines-covered="0" timestamp="1376875707" version="1.9">
+	<sources>
+		<source>/home/travis/build/FunThomas424242/webapp.example</source>
+	</sources>
+	<packages>
+		<package name="default" line-rate="0.0" branch-rate="0.0" complexity="0">
+			<classes>
+			</classes>
+		</package>
+	</packages>
+</coverage>
