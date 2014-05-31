@@ -23,6 +23,7 @@ public class StoryMap extends JUnitStoryMaps {
         final ArrayList<String> filters = new ArrayList<String>();
         filters.add("+author *");
         filters.add("themes *");
+        filters.add("-modul");
         filters.add("-skip");
         return filters;
     }

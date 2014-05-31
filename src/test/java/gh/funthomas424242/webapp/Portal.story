@@ -11,7 +11,8 @@ Damit ich diese anschließend als Kochbuch Projekt exportieren kann.
 Szenario: Start Seite
 
 Meta:
-@themes GUI
+@themes GUI 
+@themes integration
 
 
 Gegeben sei die Webserver Übersichtsseite.
@@ -23,6 +24,7 @@ Szenario: Welcome Seite
 Meta:
 @themes GUI
 
+
 Gegeben sei als aktuelle Seite die Startseite (welcome page).
 Wenn die Seite betrachtet wird
 Dann enthält diese unter der Id welcome eine Überschrift mit folgendem Text Beispiel Web-Anwendung.
@@ -31,7 +33,7 @@ Dann enthält diese unter der Id welcome eine Überschrift mit folgendem Text Be
 Szenario: Login Seite
 
 Meta:
-@themes GUI
+@themes GUI, integration
 
 Gegeben sei als aktuelle Seite die Startseite (welcome page).
 Wenn der Link Anmelden geklickt wird
