@@ -139,6 +139,28 @@
 
         <plugins>
             <plugin>
+                <groupId>com.github.timurstrekalov</groupId>
+                <artifactId>saga-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>coverage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <baseDir>src/main/webapp/</baseDir>
+                    <includes>
+                        **/*.html
+                    </includes>
+                    <noInstrumentPatterns>
+                        <pattern>**/*.story</pattern>
+                    </noInstrumentPatterns>
+                    <outputDir>${project.build.directory}/site/coverage</outputDir>
+                </configuration>
+            </plugin>
+            <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
                 <configuration>
@@ -394,13 +416,13 @@
                 </dependencies>
             </plugin>
 
-
         </plugins>
         <pluginManagement>
             <plugins>
                 <plugin>
-                    <artifactId>maven-site-plugin</artifactId>
-                    <version>3.3</version>
+                    <groupId>com.github.timurstrekalov</groupId>
+                    <artifactId>saga-maven-plugin</artifactId>
+                    <version>1.5.3</version>
                 </plugin>
                 <plugin>
                     <groupId>org.jbehave</groupId>
@@ -408,14 +430,22 @@
                     <version>${jbehave.version}</version>
                 </plugin>
                 <plugin>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>3.3</version>
+                </plugin>
+                <plugin>
                     <artifactId>maven-project-info-reports-plugin</artifactId>
                     <version>2.7</version>
                 </plugin>
-            
-            
-            
-            
-            
+                <plugin>
+                    <artifactId>maven-surefire-report-plugin</artifactId>
+                    <version>2.17</version>
+                </plugin>
+
+
+
+
+
                 <!--This plugin's configuration is used to store Eclipse 
                     m2e settings only. It has no influence on the Maven build itself. -->
                 <plugin>
@@ -451,5 +481,54 @@
             </plugins>
         </pluginManagement>
     </build>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>emma-maven-plugin</artifactId>
+                <version>1.0-alpha-3</version>
+                <inherited>true</inherited>
+            </plugin>
+            <plugin>
+                <groupId>com.atlassian.maven.plugins</groupId>
+                <artifactId>maven-clover2-plugin</artifactId>
+                <version>2.3.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+                <version>2.10</version>
+                <configuration>
+                    <xrefLocation>${project.reporting.outputDirectory}/../xref-test</xrefLocation>
+                </configuration>
+            </plugin>
+            <!-- Generate "CheckStyle" report: about violations of coding 
+                standards -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>2.2</version>
+                <inherited>true</inherited>
+                <configuration>
+                    <enableRulesSummary>false</enableRulesSummary>
+                    <sourceEncoding>${project.build.sourceEncoding}</sourceEncoding>
+                </configuration>
+            </plugin>
+            <!-- Generate "JDepend" report -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jdepend-maven-plugin</artifactId>
+                <version>2.0-beta-2</version>
+                <inherited>true</inherited>
+            </plugin>
+            <!-- Generate "PMD" report -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.0.1</version>
+            </plugin>
+        </plugins>
+    </reporting>
 
 </project>

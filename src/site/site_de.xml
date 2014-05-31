@@ -10,7 +10,8 @@
         </links>
         <menu name="Allgemeines">
             <item name="Willkommen bei" href="index.html" />
-            <item name="JBehave Reports" href="jbehave/view/index.html" />
+            <item name="Story Reports" href="jbehave/view/index.html" />
+            <item name="JS Coverage" href="coverage/total-report.html"/>
             <item name="Seitenübersicht" href="sitemap.html" />
         </menu>
         <menu ref="reports" />
