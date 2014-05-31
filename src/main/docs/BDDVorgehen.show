@@ -1,0 +1,54 @@
+{Copyright: Geschützt durch die GNU Free Documentation License v1.3 und folgende}
+= BBD Test von Webanwendungen =
+Autor: Thomas Schubert
+
+''Stand vom 31.05.2014''
+
+==BDD Was'n das?== 
+
+* BDD = Behavior Driven Development
+(Verhaltensgetriebene Softwareentwicklung)
+
+* Hierbei werden im Scrum Stil Stories formuliert und die darin enthaltenen Akzeptanzkriterien programmatisch über automatisierte Integrationstests überprüft.
+
+==Geht das auch testgetrieben?==
+
+Ja mit dem ''TDD / test first'' Ansatz! BDD eignet sich hervorragend um Testgetrieben zu entwickeln. Zur Erinnerung der typische TDD Zyklus:
+
+[[File:TDD-Zyklus.png]] 
+
+==Einordnung der Testarten==
+* TDD entstand historisch auf Ebene der Modultests
+* BDD liegt eher auf der Ebene der Integrationstests
+
+[[File:TestPyramide_Variante1.png]]
+
+==Erweiterung TDD um BDD==
+TDD lässt sich einfach auf die Ebene des Integrationstest ausweiten. 
+[[File:BDD-Zyklus.png]]
+
+==Werkzeugkette==
+Für die Entwicklung von Webanwendungen scheint folgende Werkzeugkette geeignet zu sein:
+* Github zur Ablage der Repositories des SCM's (git)
+* Java, HTML, Javascript als Programmiersprachen
+* Eclipse als IDE
+* Maven als Buildtool
+* Jetty als Testserver
+* JBehave, Selenium, JUnit und HTMLUnit als Testwerkzeuge
+* Travis-ci als Continous Build Provider
+* BinTray zur Veröffentlichung der Binaries
+--
+(Natürlich gibt es das für Closed-Source Projekte auch alles gegen Geld bei anderen Providern, z.B. CloudBees)
+
+
+==Vorgehen in der Praxis== 
+Wer zunächst auf die Idee kommt eine Story zu schreiben, dann den Akzeptanztest zu starten, ein bischen vom Feature zu implementieren und dann den Akzeptanztest erneut zu starten, wird schnell frustriert sein.
+
+Die Wartezeit GUI basierter Akzeptanztests mit Selenium dauert einfach, da der Webserver gestartet werden muss, ein Browser ferngesteuert und die Skripte ausgeführt werden müssen. Daher wurde auf den vorhergehenden Folien auch nicht nach der Implementierung jedes Akzeptanzkrieriums wieder zum Akzeptanztest verzweigt sondern erst nachdem alle Akzeptanzkriterien einer Story mit Modultests abgedeckt sind und erfolgreich laufen.
+
+
+==Quellen==
+
+* [ BDD Wikipedia ] [http://de.wikipedia.org/wiki/Behavior_Driven_Development]
+* [ TDD Wikipedia ] [http://de.wikipedia.org/wiki/Testgetriebene_Entwicklung]
+* [ BDD Slide ] [http://www.slideshare.net/shadrik/bdd-with-java-8323915]
