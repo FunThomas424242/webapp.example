@@ -39,7 +39,7 @@ Gegeben sei als aktuelle Seite die Startseite (welcome page).
 Wenn der Link Anmelden geklickt wird
 Dann wird zur Login Seite navigiert.
 
-Szenario: Welcome Seite Kontextbeschreibung
+Szenario: Login Seite Kontextbeschreibung
 
 Meta:
 @themes GUI, integration
@@ -52,21 +52,9 @@ Gegeben sei als aktuelle Seite die Loginseite.
 Wenn die Seite betrachtet wird
 Dann enthält diese ein Eingabefeld mit Id password.
 
-@Meta skip
 Gegeben sei als aktuelle Seite die Loginseite.
 Wenn die Seite betrachtet wird
 Dann enthält diese einen Button mit Text Anmelden.
-
-@Meta skip
-Gegeben sei als aktuelle Seite die Loginseite.
-Wenn die Seite betrachtet wird
-Dann enthält diese den unsichtbaren Text Ihre Anmeldung war erfolgreich.
-
-@Meta skip
-Gegeben sei als aktuelle Seite die Loginseite.
-Wenn die Seite betrachtet wird
-Dann enthält diese den unsichtbaren Text Ihre Anmeldung nicht erfolgt - bitte Zugangsdaten prüfen.
-
 
 
 

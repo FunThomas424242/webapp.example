@@ -8,6 +8,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.gargoylesoftware.htmlunit.WebClient;
+import com.gargoylesoftware.htmlunit.html.HtmlButton;
 import com.gargoylesoftware.htmlunit.html.HtmlHeading1;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.html.HtmlPasswordInput;
@@ -50,10 +51,33 @@ public class LoginPageTest {
         // Eingabefeld user prüfen
         final HtmlTextInput userField = LoginPageTest.page
                 .getHtmlElementById("user");
-        // Eingabefeld user prüfen
+        Assert.assertNotNull(userField);
+
+        // Eingabefeld password prüfen
         final HtmlPasswordInput passwordField = LoginPageTest.page
                 .getHtmlElementById("password");
-        // final HtmlDivision okButton = page.getElementByName("ok");
+        Assert.assertNotNull(passwordField);
+
+        // Button mit Text Anmelden
+        final HtmlButton anmeldenButton = (HtmlButton) page
+                .getHtmlElementById("ok");
+        Assert.assertEquals("submit", anmeldenButton.getTypeAttribute());
+        Assert.assertEquals("Anmelden", anmeldenButton.getTextContent());
+
+        // // Button mit Hinweis Anmeldung erfolgreich
+        // final HtmlLabel okMeldung = (HtmlLabel) page
+        // .getHtmlElementById("meldung_ok");
+        // Assert.assertEquals("Ihre Anmeldung war erfolgreich.",
+        // okMeldung.asText());
+        // Assert.assertEquals("hide", okMeldung.getAttribute("visible"));
+        //
+        // // Button mit Hinweis Anmeldung fehlgeschlagen
+        // final HtmlLabel errorMeldung = (HtmlLabel) page
+        // .getHtmlElementById("meldung_error");
+        // Assert.assertEquals(
+        // "Ihre Anmeldung ist nicht erfolgt - bitte Zugangsdaten prüfen.",
+        // errorMeldung.asText());
+        // Assert.assertEquals("hide", errorMeldung.getAttribute("visible"));
 
     }
 }

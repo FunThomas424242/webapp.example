@@ -5,9 +5,12 @@ import gh.funthomas424242.webapp.jbehave.helper.StoryPfadBuilder;
 import gh.funthomas424242.webapp.selenium.helper.AbstractPage;
 import gh.funthomas424242.webapp.selenium.helper.EntryPage;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.jbehave.core.configuration.Configuration;
+import org.jbehave.core.embedder.Embedder;
+import org.jbehave.core.embedder.EmbedderControls;
 import org.jbehave.core.embedder.executors.SameThreadExecutors;
 import org.jbehave.core.io.StoryFinder;
 import org.jbehave.core.junit.JUnitStories;
@@ -25,21 +28,25 @@ import de.codecentric.jbehave.junit.monitoring.JUnitReportingRunner;
 @RunWith(JUnitReportingRunner.class)
 public class PortalScenarios extends JUnitStories {
 
-    private final Configuration configuration;
-
     private final WebDriverProvider driverProvider = new PropertyWebDriverProvider();
     private final WebDriverSteps lifecycleSteps = new PerStoriesWebDriverSteps(
             this.driverProvider);
     private final AbstractPage pages = new EntryPage(this.driverProvider);
 
-    public PortalScenarios() {
+    final Configuration configuration;
 
+    public PortalScenarios() {
         this.configuration = new ConfigurationHelper()
                 .getProjectSpecificConfiguration();
 
-        configuredEmbedder().useExecutorService(
-                new SameThreadExecutors().create(configuredEmbedder()
-                        .embedderControls()));
+        final Embedder embedder = configuredEmbedder();
+        embedder.useMetaFilters(metaFilters());
+
+        final EmbedderControls embedderControls = embedder.embedderControls();
+        embedderControls.doSkip(false);
+        embedderControls.doVerboseFiltering(true);
+        embedder.useExecutorService(new SameThreadExecutors()
+                .create(embedderControls));
 
         // final EmbedderControls embedderControls = configuredEmbedder()
         // .embedderControls();
@@ -52,10 +59,21 @@ public class PortalScenarios extends JUnitStories {
         // embedderControls.doVerboseFiltering(false);
         // embedderControls.useStoryTimeoutInSecs(300);
         // embedderControls.useThreads(1);
+
+    }
+
+    protected List<String> metaFilters() {
+        final ArrayList<String> filters = new ArrayList<String>();
+        filters.add("+author *");
+        filters.add("themes *");
+        filters.add("-modul");
+        filters.add("-skip");
+        return filters;
     }
 
     @Override
     public Configuration configuration() {
+
         return this.configuration;
     }
 

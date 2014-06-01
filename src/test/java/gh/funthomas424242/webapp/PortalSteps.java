@@ -12,6 +12,9 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import com.gargoylesoftware.htmlunit.html.HtmlInput;
+import com.gargoylesoftware.htmlunit.html.HtmlPasswordInput;
+
 public class PortalSteps extends Steps {
 
     private AbstractPage currentPage;
@@ -50,6 +53,34 @@ public class PortalSteps extends Steps {
         this.currentPage.findElement(By.linkText(linkText)).click();
     }
 
+    @When("in das Textfeld $id der Text $text eingegeben wird")
+    public void setInputText(final String id, final String text) {
+        final HtmlInput textField = (HtmlInput) this.currentPage.findElement(By
+                .id(id));
+        textField.setTextContent(text);
+    }
+
+    @When("in das Passwordfeld $id der Text $text eingegeben wird")
+    public void setPasswordText(final String id, final String text) {
+        final HtmlPasswordInput passwordField = (HtmlPasswordInput) this.currentPage
+                .findElement(By.id(id));
+        passwordField.setTextContent(text);
+    }
+
+    @When("in das Textfeld $id nichts eingegeben wird")
+    public void setInputTextEmpty(final String id) {
+        final HtmlInput textField = (HtmlInput) this.currentPage.findElement(By
+                .id(id));
+        textField.setTextContent(null);
+    }
+
+    @When("in das Passwordfeld $id nichts eingegeben wird")
+    public void setPasswordTextEmpty(final String id) {
+        final HtmlPasswordInput passwordField = (HtmlPasswordInput) this.currentPage
+                .findElement(By.id(id));
+        passwordField.setTextContent(null);
+    }
+
     @Then("enthält diese unter der Id $id eine Überschrift mit folgendem Text $text.")
     public void containsSection(final String id, final String text) {
         final String foundText = this.currentPage.findElement(By.id(id))
@@ -58,9 +89,24 @@ public class PortalSteps extends Steps {
     }
 
     @Then("enthält diese ein Eingabefeld mit Id $id.")
-    public void containsSection(final String id) {
+    public void containsInputField(final String id) {
         final WebElement field = this.currentPage.findElement(By.id(id));
         Assert.assertNotNull(field);
+    }
+
+    @Then("enthält diese einen Button mit Text $text.")
+    public void containsButton(final String text) {
+        final String buttonText = this.currentPage.findElement(
+                By.tagName("button")).getText();
+        Assert.assertEquals(text, buttonText);
+    }
+
+    @Then("wird die Meldung $meldung angezeigt.")
+    public void showMessageOK(final String meldung) {
+        final String foundText = this.currentPage.findElement(
+                By.cssSelector("css=div:contains('" + meldung + "')"))
+                .getText();
+        Assert.assertEquals(meldung, foundText);
     }
 
     @Then("wird zur Welcome Seite navigiert.")
