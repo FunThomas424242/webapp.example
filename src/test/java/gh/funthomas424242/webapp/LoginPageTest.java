@@ -10,6 +10,8 @@ import org.junit.Test;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlHeading1;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
+import com.gargoylesoftware.htmlunit.html.HtmlPasswordInput;
+import com.gargoylesoftware.htmlunit.html.HtmlTextInput;
 
 public class LoginPageTest {
 
@@ -37,13 +39,20 @@ public class LoginPageTest {
     @Test
     public void checkElements() {
 
+        // Titel prüfen
         Assert.assertEquals("Login", LoginPageTest.page.getTitleText());
 
+        // Überschrift prüfen
         final HtmlHeading1 ueberschrift = LoginPageTest.page
                 .getHtmlElementById("welcome");
-
         Assert.assertEquals("Anmeldung", ueberschrift.getTextContent());
 
+        // Eingabefeld user prüfen
+        final HtmlTextInput userField = LoginPageTest.page
+                .getHtmlElementById("user");
+        // Eingabefeld user prüfen
+        final HtmlPasswordInput passwordField = LoginPageTest.page
+                .getHtmlElementById("password");
         // final HtmlDivision okButton = page.getElementByName("ok");
 
     }
