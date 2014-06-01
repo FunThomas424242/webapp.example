@@ -10,6 +10,7 @@ import org.jbehave.core.annotations.When;
 import org.jbehave.core.steps.Steps;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 public class PortalSteps extends Steps {
 
@@ -27,6 +28,11 @@ public class PortalSteps extends Steps {
     @Given("sei als aktuelle Seite die Startseite (welcome page).")
     public void atWeclcomeFile() {
         this.currentPage = this.currentPage.getWelcomePage().open();
+    }
+
+    @Given("sei als aktuelle Seite die Loginseite.")
+    public void atLoginFile() {
+        this.currentPage = this.currentPage.getLoginPage().open();
     }
 
     @When("der erste Link geklickt wird")
@@ -49,6 +55,12 @@ public class PortalSteps extends Steps {
         final String foundText = this.currentPage.findElement(By.id(id))
                 .getText();
         Assert.assertEquals(text, foundText);
+    }
+
+    @Then("enthält diese ein Eingabefeld mit Id $id.")
+    public void containsSection(final String id) {
+        final WebElement field = this.currentPage.findElement(By.id(id));
+        Assert.assertNotNull(field);
     }
 
     @Then("wird zur Welcome Seite navigiert.")

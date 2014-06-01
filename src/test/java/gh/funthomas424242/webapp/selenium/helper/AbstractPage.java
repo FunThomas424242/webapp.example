@@ -31,6 +31,10 @@ public abstract class AbstractPage extends WebDriverPage {
         return new WelcomePage(getDriverProvider());
     }
 
+    public AbstractPage getLoginPage() {
+        return new LoginPage(getDriverProvider());
+    }
+
     public AbstractPage open() {
         get(getPageUrl());
         manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
