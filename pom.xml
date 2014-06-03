@@ -201,6 +201,7 @@
                     <scope>test</scope>
                     <metaFilters>
                         <metaFilter>+author *</metaFilter>
+                        <metaFilter>+themes *</metaFilter>                        
                         <metaFilter>-skip</metaFilter>
                     </metaFilters>
                     <verboseFiltering>true</verboseFiltering>
