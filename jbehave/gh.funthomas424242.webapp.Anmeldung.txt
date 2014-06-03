@@ -1,0 +1,18 @@
+
+(gh/funthomas424242/webapp/Anmeldung.story)
+Meta:
+@author FunThomas424242
+
+Narrative:
+In order to Kochrezepte erfassen zu können
+As a Koch
+I want to alle notwendigen Daten in einer Webanwendung eingeben können
+Damit ich diese anschließend als Kochbuch Projekt exportieren kann.
+Scenario: Erfolgreiche Anmeldung
+Gegeben sei als aktuelle Seite die Loginseite.
+Wenn in das Textfeld user der Text Huluvu424242 eingegeben wird (FAILED)
+(java.lang.ClassCastException: org.openqa.selenium.remote.RemoteWebElement cannot be cast to com.gargoylesoftware.htmlunit.html.HtmlInput)
+Und in das Passwordfeld password der Text Geheim eingegeben wird (NOT PERFORMED)
+Dann wird die Meldung Ihre Anmeldung war erfolgreich angezeigt. (NOT PERFORMED)
+
+Scenario: Keine Anmeldung

@@ -1,36 +1,50 @@
 <html>
 <head>
-<title>AfterStories</title>
+<title>gh.funthomas424242.webapp.AufbauPortalSeiten</title>
 <style type="text/css" media="all">
 @import url( "./style/jbehave-core.css" );
 </style>
 </head>
 <body>
-  
-<script type="syntaxhighlighter" class="brush: plain"><![CDATA[
-#org.jbehave.core.reporters.PostStoryStatisticsCollector
-#Tue Jun 03 22:08:02 UTC 2014
-duration=75
-notAllowed=0
-examples=0
-scenariosNotAllowed=0
-pending=0
-stepsPending=0
-stepsNotPerformed=0
-scenariosSuccessful=0
-givenStoryScenarios=0
-givenStoryScenariosFailed=0
-stepsFailed=0
-scenarios=0
-givenStories=0
-stepsSuccessful=0
-steps=0
-givenStoryScenariosPending=0
-scenariosPending=0
-stepsIgnorable=0
-givenStoryScenariosNotAllowed=0
-scenariosFailed=0
-givenStoryScenariosSuccessful=0
+ 
+<script type="syntaxhighlighter" class="brush: txt"><![CDATA[
+
+(gh/funthomas424242/webapp/AufbauPortalSeiten.story)
+Meta:
+@author FunThomas424242
+
+Narrative:
+In order to Kochrezepte erfassen zu können
+As a Koch
+I want to alle notwendigen Daten in einer Webanwendung eingeben können
+Damit ich diese anschließend als Kochbuch Projekt exportieren kann.
+Scenario: Start Seite anzeigen
+Gegeben sei die Webserver Übersichtsseite.
+Wenn der erste Link geklickt wird
+Dann wird zur Welcome Seite navigiert.
+
+Scenario: Welcome Seite Kontextbeschreibung
+Gegeben sei als aktuelle Seite die Startseite (welcome page).
+Wenn die Seite betrachtet wird
+Dann enthält diese unter der Id welcome eine Überschrift mit folgendem Text Beispiel Web-Anwendung.
+
+Scenario: Navigation zur Login Seite
+Gegeben sei als aktuelle Seite die Startseite (welcome page).
+Wenn der Link Anmelden geklickt wird
+Dann wird zur Login Seite navigiert.
+
+Scenario: Login Seite Kontextbeschreibung
+Gegeben sei als aktuelle Seite die Loginseite.
+Wenn die Seite betrachtet wird
+Dann enthält diese ein Eingabefeld mit Id user.
+Gegeben sei als aktuelle Seite die Loginseite.
+Wenn die Seite betrachtet wird
+Dann enthält diese ein Eingabefeld mit Id password.
+Gegeben sei als aktuelle Seite die Loginseite.
+Wenn die Seite betrachtet wird
+Dann enthält diese einen Button mit Text Anmelden.
+
+
 
 ]]></script>
 </body>

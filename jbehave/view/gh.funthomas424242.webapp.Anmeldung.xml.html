@@ -1,36 +1,30 @@
 <html>
 <head>
-<title>AfterStories</title>
+<title>gh.funthomas424242.webapp.Anmeldung</title>
 <style type="text/css" media="all">
 @import url( "./style/jbehave-core.css" );
 </style>
 </head>
 <body>
-  
-<script type="syntaxhighlighter" class="brush: plain"><![CDATA[
-#org.jbehave.core.reporters.PostStoryStatisticsCollector
-#Tue Jun 03 22:08:02 UTC 2014
-duration=75
-notAllowed=0
-examples=0
-scenariosNotAllowed=0
-pending=0
-stepsPending=0
-stepsNotPerformed=0
-scenariosSuccessful=0
-givenStoryScenarios=0
-givenStoryScenariosFailed=0
-stepsFailed=0
-scenarios=0
-givenStories=0
-stepsSuccessful=0
-steps=0
-givenStoryScenariosPending=0
-scenariosPending=0
-stepsIgnorable=0
-givenStoryScenariosNotAllowed=0
-scenariosFailed=0
-givenStoryScenariosSuccessful=0
+ 
+<script type="syntaxhighlighter" class="brush: xml"><![CDATA[
+<story path="gh/funthomas424242/webapp/Anmeldung.story" title="">
+<meta>
+<property keyword="@" name="author" value="FunThomas424242"/>
+</meta>
+<narrative keyword="Narrative:">
+  <inOrderTo keyword="In order to">Kochrezepte erfassen zu k&#246;nnen</inOrderTo>
+  <asA keyword="As a">Koch</asA>
+  <iWantTo keyword="I want to">alle notwendigen Daten in einer Webanwendung eingeben k&#246;nnen
+Damit ich diese anschlie&#223;end als Kochbuch Projekt exportieren kann.</iWantTo>
+</narrative>
+<scenario keyword="Scenario:" title="Erfolgreiche Anmeldung">
+<step outcome="successful">Gegeben sei als aktuelle Seite die Loginseite.</step>
+<step outcome="failed" keyword="FAILED">Wenn in das Textfeld <parameter>user</parameter> der Text <parameter>Huluvu424242</parameter> eingegeben wird<failure>java.lang.ClassCastException: org.openqa.selenium.remote.RemoteWebElement cannot be cast to com.gargoylesoftware.htmlunit.html.HtmlInput</failure></step>
+<step outcome="notPerformed" keyword="NOT PERFORMED">Und in das Passwordfeld <parameter>password</parameter> der Text <parameter>Geheim</parameter> eingegeben wird</step>
+<step outcome="notPerformed" keyword="NOT PERFORMED">Dann wird die Meldung <parameter>Ihre Anmeldung war erfolgreich</parameter> angezeigt.</step>
+</scenario>
+<scenario keyword="Scenario:" title="Keine Anmeldung">
 
 ]]></script>
 </body>
