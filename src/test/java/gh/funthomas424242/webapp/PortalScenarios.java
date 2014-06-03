@@ -44,7 +44,7 @@ public class PortalScenarios extends JUnitStories {
 
         final EmbedderControls embedderControls = embedder.embedderControls();
         embedderControls.doSkip(false);
-        embedderControls.doVerboseFiltering(true);
+        // embedderControls.doVerboseFiltering(true);
         embedder.useExecutorService(new SameThreadExecutors()
                 .create(embedderControls));
 

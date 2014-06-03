@@ -199,6 +199,14 @@
                 <artifactId>jbehave-maven-plugin</artifactId>
                 <configuration>
                     <scope>test</scope>
+                    <metaFilters>
+                        <metaFilter>+author *</metaFilter>
+                        <metaFilter>-skip</metaFilter>
+                    </metaFilters>
+                    <verboseFiltering>true</verboseFiltering>
+                    <executorsClass>org.jbehave.core.embedder.executors.SameThreadExecutors</executorsClass>
+                    <ignoreFailureInStories>true</ignoreFailureInStories>
+                    <ignoreFailureInView>false</ignoreFailureInView>
                 </configuration>
                 <executions>
                     <execution>
@@ -211,9 +219,6 @@
                             <includes>
                                 <include>**/*Scenarios.java</include>
                             </includes>
-                            <executorsClass>org.jbehave.core.embedder.executors.SameThreadExecutors</executorsClass>
-                            <ignoreFailureInStories>true</ignoreFailureInStories>
-                            <ignoreFailureInView>false</ignoreFailureInView>
                         </configuration>
                     </execution>
                     <execution>
@@ -224,12 +229,6 @@
                             <includes>
                                 <include>**/*Map.java</include>
                             </includes>
-                            <metaFilters>
-                                <metaFilter>+author *</metaFilter>
-                                <metaFilter>themes *</metaFilter>
-                                <metaFilters>-modul</metaFilters>
-                                <metaFilter>-skip</metaFilter>
-                            </metaFilters>
                         </configuration>
                         <goals>
                             <goal>map-stories-as-embeddables</goal>
