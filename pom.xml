@@ -163,9 +163,11 @@
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
+                <!-- 
                 <configuration>
                     <compilerId>eclipse</compilerId>
                 </configuration>
+                 -->
                 <dependencies>
                     <dependency>
                         <groupId>org.codehaus.plexus</groupId>
@@ -201,7 +203,7 @@
                     <scope>test</scope>
                     <metaFilters>
                         <metaFilter>+author *</metaFilter>
-                        <metaFilter>+themes *</metaFilter>                        
+                        <metaFilter>+themes *</metaFilter>
                         <metaFilter>-skip</metaFilter>
                     </metaFilters>
                     <verboseFiltering>true</verboseFiltering>
@@ -211,15 +213,30 @@
                 </configuration>
                 <executions>
                     <execution>
-                        <id>run-stories-as-embeddables</id>
+                        <id>run-unit-tests</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>run-stories-as-embeddables</goal>
+                        </goals>
+                        <configuration>
+                            <includes>
+                                <include>**/ModulScenarios.java</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>run-integration-tests</id>
                         <phase>integration-test</phase>
                         <goals>
                             <goal>run-stories-as-embeddables</goal>
                         </goals>
                         <configuration>
                             <includes>
-                                <include>**/*Scenarios.java</include>
+                                <include>**/IntegrationsScenarios.java</include>
                             </includes>
+                            <excludes>
+                                <exclude>**/ModulScenarios.java</exclude>
+                            </excludes>
                         </configuration>
                     </execution>
                     <execution>

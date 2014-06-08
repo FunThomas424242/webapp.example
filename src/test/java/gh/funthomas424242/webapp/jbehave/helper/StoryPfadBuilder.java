@@ -7,6 +7,9 @@ import org.jbehave.core.io.CodeLocations;
 
 public class StoryPfadBuilder {
 
+    public final static String UNIT_STORY_PATTERN = "**/Unit.*.story";
+    public final static String INTEGRATION_STORY_PATTERN = "**/Int.*.story";
+
     public URL getStartURL() {
         return getURLofStoryDir();
     }

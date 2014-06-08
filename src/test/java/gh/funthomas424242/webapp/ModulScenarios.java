@@ -2,8 +2,6 @@ package gh.funthomas424242.webapp;
 
 import gh.funthomas424242.webapp.jbehave.helper.ConfigurationHelper;
 import gh.funthomas424242.webapp.jbehave.helper.StoryPfadBuilder;
-import gh.funthomas424242.webapp.selenium.helper.AbstractPage;
-import gh.funthomas424242.webapp.selenium.helper.EntryPage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,26 +14,16 @@ import org.jbehave.core.io.StoryFinder;
 import org.jbehave.core.junit.JUnitStories;
 import org.jbehave.core.steps.InjectableStepsFactory;
 import org.jbehave.core.steps.InstanceStepsFactory;
-import org.jbehave.web.selenium.PerStoriesWebDriverSteps;
-import org.jbehave.web.selenium.PropertyWebDriverProvider;
-import org.jbehave.web.selenium.WebDriverProvider;
-import org.jbehave.web.selenium.WebDriverScreenshotOnFailure;
-import org.jbehave.web.selenium.WebDriverSteps;
 import org.junit.runner.RunWith;
 
 import de.codecentric.jbehave.junit.monitoring.JUnitReportingRunner;
 
 @RunWith(JUnitReportingRunner.class)
-public class PortalScenarios extends JUnitStories {
-
-    private final WebDriverProvider driverProvider = new PropertyWebDriverProvider();
-    private final WebDriverSteps lifecycleSteps = new PerStoriesWebDriverSteps(
-            this.driverProvider);
-    private final AbstractPage pages = new EntryPage(this.driverProvider);
+public class ModulScenarios extends JUnitStories {
 
     final Configuration configuration;
 
-    public PortalScenarios() {
+    public ModulScenarios() {
         this.configuration = new ConfigurationHelper()
                 .getProjectSpecificConfiguration();
 
@@ -48,47 +36,33 @@ public class PortalScenarios extends JUnitStories {
         embedder.useExecutorService(new SameThreadExecutors()
                 .create(embedderControls));
 
-        // final EmbedderControls embedderControls = configuredEmbedder()
-        // .embedderControls();
-        // embedderControls.doBatch(false);
-        // embedderControls.doGenerateViewAfterStories(true);
-        // embedderControls.doIgnoreFailureInStories(false);
-        // embedderControls.doIgnoreFailureInView(false);
-        // embedderControls.doSkip(false);
-        // embedderControls.doVerboseFailures(false);
-        // embedderControls.doVerboseFiltering(false);
-        // embedderControls.useStoryTimeoutInSecs(300);
-        // embedderControls.useThreads(1);
-
     }
 
     protected List<String> metaFilters() {
         final ArrayList<String> filters = new ArrayList<String>();
         filters.add("+author *");
         filters.add("themes *");
-        filters.add("-modul");
         filters.add("-skip");
         return filters;
     }
 
     @Override
     public Configuration configuration() {
-
         return this.configuration;
     }
 
     @Override
     public InjectableStepsFactory stepsFactory() {
-        return new InstanceStepsFactory(this.configuration(), new PortalSteps(
-                this.pages), this.lifecycleSteps,
-                new WebDriverScreenshotOnFailure(this.driverProvider, this
-                        .configuration().storyReporterBuilder()));
+        return new InstanceStepsFactory(this.configuration(),
+                new HtmlUnitSteps(), this.configuration()
+                        .storyReporterBuilder());
     }
 
     @Override
     protected List<String> storyPaths() {
         final List<String> stories = new StoryFinder().findPaths(
-                new StoryPfadBuilder().getStartURL(), "**/*.story", "");
+                new StoryPfadBuilder().getStartURL(),
+                StoryPfadBuilder.UNIT_STORY_PATTERN, "");
         return stories;
     }
 
