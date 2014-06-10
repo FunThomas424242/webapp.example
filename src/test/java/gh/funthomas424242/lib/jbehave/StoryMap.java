@@ -1,7 +1,5 @@
 package gh.funthomas424242.lib.jbehave;
 
-import gh.funthomas424242.webapp.selenium.AbstractPage;
-import gh.funthomas424242.webapp.selenium.EntryPage;
 import gh.funthomas424242.webapp.selenium.SeleniumSteps;
 
 import java.util.List;
@@ -16,7 +14,6 @@ import org.jbehave.web.selenium.WebDriverProvider;
 import org.jbehave.web.selenium.WebDriverScreenshotOnFailure;
 import org.jbehave.web.selenium.WebDriverSteps;
 
-
 public class StoryMap extends JUnitStoryMaps {
 
     private final Configuration configuration;
@@ -24,7 +21,6 @@ public class StoryMap extends JUnitStoryMaps {
     private final WebDriverProvider driverProvider = new PropertyWebDriverProvider();
     private final WebDriverSteps lifecycleSteps = new PerStoriesWebDriverSteps(
             this.driverProvider);
-    private final AbstractPage pages = new EntryPage(this.driverProvider);
 
     public StoryMap() {
 
@@ -46,8 +42,8 @@ public class StoryMap extends JUnitStoryMaps {
 
     @Override
     public InjectableStepsFactory stepsFactory() {
-        return new InstanceStepsFactory(this.configuration(), new SeleniumSteps(
-                this.pages), this.lifecycleSteps,
+        return new InstanceStepsFactory(this.configuration(),
+                new SeleniumSteps(this.driverProvider), this.lifecycleSteps,
                 new WebDriverScreenshotOnFailure(this.driverProvider, this
                         .configuration().storyReporterBuilder()));
     }

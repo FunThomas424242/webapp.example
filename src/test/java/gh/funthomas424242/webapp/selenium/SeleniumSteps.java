@@ -5,7 +5,8 @@ import gh.funthomas424242.webapp.login.LoginPage;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
-import org.jbehave.core.steps.Steps;
+import org.jbehave.web.selenium.PerStoriesWebDriverSteps;
+import org.jbehave.web.selenium.WebDriverProvider;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -13,27 +14,37 @@ import org.openqa.selenium.WebElement;
 import com.gargoylesoftware.htmlunit.html.HtmlInput;
 import com.gargoylesoftware.htmlunit.html.HtmlPasswordInput;
 
-public class SeleniumSteps extends Steps {
+public class SeleniumSteps extends PerStoriesWebDriverSteps {
+
+    public SeleniumSteps(final WebDriverProvider driverProvider) {
+        super(driverProvider);
+    }
+
+    @Override
+    public void beforeStories() throws Exception {
+        // Initialisierung erfolgt bereits im Scenario
+    }
+
+    @Override
+    public void afterStories() throws Exception {
+        // Beenden erst wenn alle Scenarios durch sind
+    }
 
     private AbstractPage currentPage;
 
-    public SeleniumSteps(final AbstractPage page) {
-        this.currentPage = page;
-    }
-
     @Given("sei die Webserver Übersichtsseite.")
     public void atServerHome() {
-        this.currentPage = this.currentPage.getEntryPage().open();
+        this.currentPage = new EntryPage(getDriverProvider()).open();
     }
 
     @Given("sei als aktuelle Seite die Startseite (welcome page).")
     public void atWeclcomeFile() {
-        this.currentPage = this.currentPage.getWelcomePage().open();
+        this.currentPage = new WelcomePage(getDriverProvider()).open();
     }
 
     @Given("sei als aktuelle Seite die Loginseite.")
     public void atLoginFile() {
-        this.currentPage = this.currentPage.getLoginPage().open();
+        this.currentPage = new LoginPage(getDriverProvider()).open();
     }
 
     @When("der erste Link geklickt wird")
