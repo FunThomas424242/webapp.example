@@ -1,36 +1,31 @@
 <html>
 <head>
-<title>BeforeStories</title>
+<title>gh.funthomas424242.webapp.Int.Anmeldung</title>
 <style type="text/css" media="all">
 @import url( "./style/jbehave-core.css" );
 </style>
 </head>
 <body>
-  
-<script type="syntaxhighlighter" class="brush: plain"><![CDATA[
-#org.jbehave.core.reporters.PostStoryStatisticsCollector
-#Tue Jun 10 19:32:44 UTC 2014
-duration=2
-notAllowed=0
-examples=0
-scenariosNotAllowed=0
-pending=0
-stepsPending=0
-stepsNotPerformed=0
-scenariosSuccessful=0
-givenStoryScenarios=0
-givenStoryScenariosFailed=0
-stepsFailed=0
-scenarios=0
-givenStories=0
-stepsSuccessful=0
-steps=0
-givenStoryScenariosPending=0
-scenariosPending=0
-stepsIgnorable=0
-givenStoryScenariosNotAllowed=0
-scenariosFailed=0
-givenStoryScenariosSuccessful=0
+ 
+<script type="syntaxhighlighter" class="brush: txt"><![CDATA[
+
+(gh/funthomas424242/webapp/Int.Anmeldung.story)
+Meta:
+@author FunThomas424242
+
+Narrative:
+In order to Kochrezepte erfassen zu können
+As a Koch
+I want to alle notwendigen Daten in einer Webanwendung eingeben können
+Damit ich diese anschließend als Kochbuch Projekt exportieren kann.
+Scenario: Erfolgreiche Anmeldung
+Gegeben sei als aktuelle Seite die Loginseite.
+Wenn in das Textfeld user der Text Huluvu424242 eingegeben wird (FAILED)
+(java.lang.ClassCastException: org.openqa.selenium.remote.RemoteWebElement cannot be cast to com.gargoylesoftware.htmlunit.html.HtmlInput)
+Und in das Passwordfeld password der Text Geheim eingegeben wird (NOT PERFORMED)
+Dann wird die Meldung Ihre Anmeldung war erfolgreich angezeigt. (NOT PERFORMED)
+
+Scenario: Keine Anmeldung
 
 ]]></script>
 </body>

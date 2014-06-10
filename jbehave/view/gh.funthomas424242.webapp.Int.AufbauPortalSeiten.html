@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>gh.funthomas424242.webapp.Int.AufbauPortalSeiten</title>
+<style type="text/css" media="all">
+@import url( "./style/jbehave-core.css" );
+</style>
+</head>
+<body>
+<div class="story">
+<h1></h1>
+<div class="path">gh/funthomas424242/webapp/Int.AufbauPortalSeiten.story</div>
+<div class="meta">
+<div class="keyword">Meta:</div>
+<div class="property">@author FunThomas424242</div>
+</div>
+<div class="narrative"><h2>Narrative:</h2>
+<div class="element inOrderTo"><span class="keyword inOrderTo">In order to</span> Kochrezepte erfassen zu k&ouml;nnen</div>
+<div class="element asA"><span class="keyword asA">As a</span> Koch</div>
+<div class="element iWantTo"><span class="keyword iWantTo">I want to</span> alle notwendigen Daten in einer Webanwendung eingeben k&ouml;nnen
+Damit ich diese anschlie&szlig;end als Kochbuch Projekt exportieren kann.</div>
+</div>
+<div class="scenario">
+<h2>Scenario: Start Seite anzeigen</h2>
+<div class="step successful">Gegeben sei die Webserver &Uuml;bersichtsseite.</div>
+<div class="step successful">Wenn der erste Link geklickt wird</div>
+<div class="step successful">Dann wird zur Welcome Seite navigiert.</div>
+</div>
+<div class="scenario">
+<h2>Scenario: Welcome Seite Kontextbeschreibung</h2>
+<div class="step successful">Gegeben sei als aktuelle Seite die Startseite (welcome page).</div>
+<div class="step successful">Wenn die Seite betrachtet wird</div>
+<div class="step successful">Dann enth&auml;lt diese unter der Id <span class="step parameter">welcome</span> eine &Uuml;berschrift mit folgendem Text Beispiel Web-Anwendung.</div>
+</div>
+<div class="scenario">
+<h2>Scenario: Navigation zur Login Seite</h2>
+<div class="step successful">Gegeben sei als aktuelle Seite die Startseite (welcome page).</div>
+<div class="step successful">Wenn der Link <span class="step parameter">Anmelden</span> geklickt wird</div>
+<div class="step successful">Dann wird zur Login Seite navigiert.</div>
+</div>
+<div class="scenario">
+<h2>Scenario: Login Seite Kontextbeschreibung</h2>
+<div class="step successful">Gegeben sei als aktuelle Seite die Loginseite.</div>
+<div class="step successful">Wenn die Seite betrachtet wird</div>
+<div class="step successful">Dann enth&auml;lt diese ein Eingabefeld mit Id user.</div>
+<div class="step successful">Gegeben sei als aktuelle Seite die Loginseite.</div>
+<div class="step successful">Wenn die Seite betrachtet wird</div>
+<div class="step successful">Dann enth&auml;lt diese ein Eingabefeld mit Id password.</div>
+<div class="step successful">Gegeben sei als aktuelle Seite die Loginseite.</div>
+<div class="step successful">Wenn die Seite betrachtet wird</div>
+<div class="step successful">Dann enth&auml;lt diese einen Button mit Text Anmelden.</div>
+</div>
+</div>
+
+</body>
+<!--  SyntaxHighlighter resources:  should be included at end of body -->
+<link rel="stylesheet" type="text/css" href="./style/sh-3.0.83/shCore.css"/>
+<link rel="stylesheet" type="text/css" href="./style/sh-3.0.83/shThemeRDark.css"/>
+<script language="javascript" src="./js/sh-3.0.83/shCore.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushBash.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushCss.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushDiff.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushGroovy.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushJava.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushJScript.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushPlain.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushPython.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushRuby.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushScala.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushXml.js"></script>
+<script language="javascript" src="./js/shBrushBdd.js"></script>
+<script type="text/javascript">
+    SyntaxHighlighter.defaults['gutter'] = false;
+    SyntaxHighlighter.defaults['toolbar'] = false;    
+    SyntaxHighlighter.all();
+</script>
+</html>

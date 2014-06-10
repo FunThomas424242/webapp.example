@@ -1,0 +1,41 @@
+
+(gh/funthomas424242/webapp/login/Unit.AufbauAnmeldeseite.story)
+Meta:
+@author FunThomas424242
+
+Narrative:
+In order to die Story AufbauPortalSeiten Tests definieren zu können
+As a Entwickler
+I want to alle Modultests als Stories definieren
+Damit ich auch den Modultest mittels BDD automatisiert durchführen kann.
+Scenario: Seitenelemente prüfen
+Gegeben sei die Datei login.html.
+Wenn der Seitentitel lautet Login
+Und die Überschrift Ebene1 mit der Id welcome lautet Anmeldung
+Wenn das Eingabefeld mit Id user existiert
+Und das Passwordfeld mit Id password existiert
+Wenn der Button mit der Id ok vom Typ submit und der Beschriftung Anmelden existiert
+Dann waren alle Tests erfolgreich und der Speicher kann bereinigt werden.
+
+ // Button mit Hinweis Anmeldung erfolgreich
+        // final HtmlLabel okMeldung = (HtmlLabel) page
+        // .getHtmlElementById("meldung_ok");
+        // Assert.assertEquals("Ihre Anmeldung war erfolgreich.",
+        // okMeldung.asText());
+        // Assert.assertEquals("hide", okMeldung.getAttribute("visible"));
+        //
+        // // Button mit Hinweis Anmeldung fehlgeschlagen
+        // final HtmlLabel errorMeldung = (HtmlLabel) page
+        // .getHtmlElementById("meldung_error");
+        // Assert.assertEquals(
+        // "Ihre Anmeldung ist nicht erfolgt - bitte Zugangsdaten prüfen.",
+        // errorMeldung.asText());
+        // Assert.assertEquals("hide", errorMeldung.getAttribute("visible")); (PENDING)
+@Then("waren alle Tests erfolgreich und der Speicher kann bereinigt werden.\n\n // Button mit Hinweis Anmeldung erfolgreich\n        // final HtmlLabel okMeldung = (HtmlLabel) page\n        // .getHtmlElementById(\"meldung_ok\");\n        // Assert.assertEquals(\"Ihre Anmeldung war erfolgreich.\",\n        // okMeldung.asText());\n        // Assert.assertEquals(\"hide\", okMeldung.getAttribute(\"visible\"));\n        //\n        // // Button mit Hinweis Anmeldung fehlgeschlagen\n        // final HtmlLabel errorMeldung = (HtmlLabel) page\n        // .getHtmlElementById(\"meldung_error\");\n        // Assert.assertEquals(\n        // \"Ihre Anmeldung ist nicht erfolgt - bitte Zugangsdaten pr\u00FCfen.\",\n        // errorMeldung.asText());\n        // Assert.assertEquals(\"hide\", errorMeldung.getAttribute(\"visible\"));")
+@Pending
+public void thenWarenAlleTestsErfolgreichUndDerSpeicherKannBereinigtWerdenButtonMitHinweisAnmeldungErfolgreichFinalHtmlLabelOkMeldungHtmlLabelPagegetHtmlElementByIdmeldung_okAssertassertEqualsIhreAnmeldungWarErfolgreichOkMeldungasTextAssertassertEqualshideOkMeldunggetAttributevisibleButtonMitHinweisAnmeldungFehlgeschlagenFinalHtmlLabelErrorMeldungHtmlLabelPagegetHtmlElementByIdmeldung_errorAssertassertEqualsIhreAnmeldungIstNichtErfolgtBitteZugangsdatenPrüfenErrorMeldungasTextAssertassertEqualshideErrorMeldunggetAttributevisible() {
+  // AUSSTEHEND
+}
+
+
+
