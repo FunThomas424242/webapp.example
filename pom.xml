@@ -97,19 +97,9 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.jbehave</groupId>
             <artifactId>jbehave-core</artifactId>
             <version>${jbehave.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>de.codecentric</groupId>
-            <artifactId>jbehave-junit-runner</artifactId>
-            <version>1.1.0</version>
         </dependency>
         <dependency>
             <groupId>org.jbehave.web</groupId>
@@ -138,43 +128,15 @@
 
 
         <plugins>
-            <plugin>
-                <groupId>com.github.timurstrekalov</groupId>
-                <artifactId>saga-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>coverage</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <baseDir>src/main/webapp/</baseDir>
-                    <includes>
-                        **/*.html
-                    </includes>
-                    <noInstrumentPatterns>
-                        <pattern>**/*.story</pattern>
-                    </noInstrumentPatterns>
-                    <outputDir>${project.build.directory}/site/coverage</outputDir>
-                </configuration>
-            </plugin>
+            <!-- <plugin> <groupId>com.github.timurstrekalov</groupId> <artifactId>saga-maven-plugin</artifactId> 
+                <executions> <execution> <phase>verify</phase> <goals> <goal>coverage</goal> 
+                </goals> </execution> </executions> <configuration> <baseDir>src/main/webapp/</baseDir> 
+                <includes> **/*.html </includes> <noInstrumentPatterns> <pattern>**/*.story</pattern> 
+                </noInstrumentPatterns> <outputDir>${project.build.directory}/site/coverage</outputDir> 
+                </configuration> </plugin> -->
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
-                <!-- 
-                <configuration>
-                    <compilerId>eclipse</compilerId>
-                </configuration>
-                 -->
-                <dependencies>
-                    <dependency>
-                        <groupId>org.codehaus.plexus</groupId>
-                        <artifactId>plexus-compiler-eclipse</artifactId>
-                        <version>1.7</version>
-                    </dependency>
-                </dependencies>
             </plugin>
             <plugin>
                 <groupId>com.github.github</groupId>
@@ -387,13 +349,9 @@
                     <!-- SLF4J API <dependency> <groupId>org.slf4j</groupId> 
                         <artifactId>slf4j-api</artifactId> </dependency> -->
 
-                    <!-- Deploy our required library versions -->
-                    <dependency>
-                        <groupId>commons-lang</groupId>
-                        <artifactId>commons-lang</artifactId>
-                        <version>2.4</version>
-                        <optional>false</optional>
-                    </dependency>
+                    <!-- Deploy our required library versions <dependency> 
+                        <groupId>commons-lang</groupId> <artifactId>commons-lang</artifactId> <version>2.4</version> 
+                        <optional>false</optional> </dependency> -->
 
                     <!-- Deploy JSF libs <dependency> <groupId>javax.faces</groupId> 
                         <artifactId>jsf-api</artifactId> <version>${jsf.version}</version> </dependency> 
@@ -501,17 +459,10 @@
 
     <reporting>
         <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>emma-maven-plugin</artifactId>
-                <version>1.0-alpha-3</version>
-                <inherited>true</inherited>
-            </plugin>
-            <plugin>
-                <groupId>com.atlassian.maven.plugins</groupId>
-                <artifactId>maven-clover2-plugin</artifactId>
-                <version>2.3.1</version>
-            </plugin>
+            <!-- <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>emma-maven-plugin</artifactId> 
+                <version>1.0-alpha-3</version> <inherited>true</inherited> </plugin> <plugin> 
+                <groupId>com.atlassian.maven.plugins</groupId> <artifactId>maven-clover2-plugin</artifactId> 
+                <version>2.3.1</version> </plugin> -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-report-plugin</artifactId>
@@ -521,24 +472,13 @@
                 </configuration>
             </plugin>
             <!-- Generate "CheckStyle" report: about violations of coding 
-                standards -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>2.2</version>
-                <inherited>true</inherited>
-                <configuration>
-                    <enableRulesSummary>false</enableRulesSummary>
-                    <sourceEncoding>${project.build.sourceEncoding}</sourceEncoding>
-                </configuration>
-            </plugin>
-            <!-- Generate "JDepend" report -->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>jdepend-maven-plugin</artifactId>
-                <version>2.0-beta-2</version>
-                <inherited>true</inherited>
-            </plugin>
+                standards <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-checkstyle-plugin</artifactId> 
+                <version>2.2</version> <inherited>true</inherited> <configuration> <enableRulesSummary>false</enableRulesSummary> 
+                <sourceEncoding>${project.build.sourceEncoding}</sourceEncoding> </configuration> 
+                </plugin> -->
+            <!-- Generate "JDepend" report <plugin> <groupId>org.codehaus.mojo</groupId> 
+                <artifactId>jdepend-maven-plugin</artifactId> <version>2.0-beta-2</version> 
+                <inherited>true</inherited> </plugin> -->
             <!-- Generate "PMD" report -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
