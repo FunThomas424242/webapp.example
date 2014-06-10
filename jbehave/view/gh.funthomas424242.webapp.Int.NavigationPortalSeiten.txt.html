@@ -1,27 +1,38 @@
 <html>
 <head>
-<title>gh.funthomas424242.webapp.Int.Anmeldung</title>
+<title>gh.funthomas424242.webapp.Int.NavigationPortalSeiten</title>
 <style type="text/css" media="all">
 @import url( "./style/jbehave-core.css" );
 </style>
 </head>
 <body>
-<div class="story">
-<h1></h1>
-<div class="path">gh/funthomas424242/webapp/Int.Anmeldung.story</div>
-<div class="meta">
-<div class="keyword">Meta:</div>
-<div class="property">@author FunThomas424242</div>
-</div>
-<div class="narrative"><h2>Narrative:</h2>
-<div class="element inOrderTo"><span class="keyword inOrderTo">In order to</span> Kochrezepte erfassen zu k&ouml;nnen</div>
-<div class="element asA"><span class="keyword asA">As a</span> Koch</div>
-<div class="element iWantTo"><span class="keyword iWantTo">I want to</span> mich am Portal anmelden k&ouml;nnen
-Damit ich die Funktionen der Webanwendung nutzen kann.</div>
-</div>
-<div class="scenario">
-<h2>Scenario: Erfolgreiche Anmeldung</h2>
+ 
+<script type="syntaxhighlighter" class="brush: txt"><![CDATA[
 
+(gh/funthomas424242/webapp/Int.NavigationPortalSeiten.story)
+Meta:
+@author FunThomas424242
+
+Narrative:
+In order to die Navigation der Portalseiten zu definieren
+As a Entwickler
+I want to alle Navigationswege über Stories definieren
+Damit ich die Navigation im Integrationstest prüfen kann.
+Scenario: Start Seite anzeigen
+Gegeben sei die Webserver Übersichtsseite.
+Wenn der erste Link geklickt wird
+Dann wird zur Welcome Seite navigiert.
+
+Scenario: Navigation zur Login Seite
+Gegeben sei als aktuelle Seite die Startseite (welcome page).
+Wenn der Link Anmelden geklickt wird
+Dann wird zur Login Seite navigiert.
+
+Scenario: 
+
+
+
+]]></script>
 </body>
 <!--  SyntaxHighlighter resources:  should be included at end of body -->
 <link rel="stylesheet" type="text/css" href="./style/sh-3.0.83/shCore.css"/>

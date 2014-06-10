@@ -1,0 +1,23 @@
+
+(gh/funthomas424242/webapp/Int.NavigationPortalSeiten.story)
+Meta:
+@author FunThomas424242
+
+Narrative:
+In order to die Navigation der Portalseiten zu definieren
+As a Entwickler
+I want to alle Navigationswege über Stories definieren
+Damit ich die Navigation im Integrationstest prüfen kann.
+Scenario: Start Seite anzeigen
+Gegeben sei die Webserver Übersichtsseite.
+Wenn der erste Link geklickt wird
+Dann wird zur Welcome Seite navigiert.
+
+Scenario: Navigation zur Login Seite
+Gegeben sei als aktuelle Seite die Startseite (welcome page).
+Wenn der Link Anmelden geklickt wird
+Dann wird zur Login Seite navigiert.
+
+Scenario: 
+
+

@@ -1,0 +1,23 @@
+<story path="gh/funthomas424242/webapp/Int.NavigationPortalSeiten.story" title="">
+<meta>
+<property keyword="@" name="author" value="FunThomas424242"/>
+</meta>
+<narrative keyword="Narrative:">
+  <inOrderTo keyword="In order to">die Navigation der Portalseiten zu definieren</inOrderTo>
+  <asA keyword="As a">Entwickler</asA>
+  <iWantTo keyword="I want to">alle Navigationswege &#252;ber Stories definieren
+Damit ich die Navigation im Integrationstest pr&#252;fen kann.</iWantTo>
+</narrative>
+<scenario keyword="Scenario:" title="Start Seite anzeigen">
+<step outcome="successful">Gegeben sei die Webserver &#220;bersichtsseite.</step>
+<step outcome="successful">Wenn der erste Link geklickt wird</step>
+<step outcome="successful">Dann wird zur Welcome Seite navigiert.</step>
+</scenario>
+<scenario keyword="Scenario:" title="Navigation zur Login Seite">
+<step outcome="successful">Gegeben sei als aktuelle Seite die Startseite (welcome page).</step>
+<step outcome="successful">Wenn der Link <parameter>Anmelden</parameter> geklickt wird</step>
+<step outcome="successful">Dann wird zur Login Seite navigiert.</step>
+</scenario>
+<scenario keyword="Scenario:" title="">
+</scenario>
+</story>

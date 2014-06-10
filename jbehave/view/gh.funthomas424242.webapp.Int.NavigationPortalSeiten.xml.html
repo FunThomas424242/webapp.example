@@ -1,27 +1,38 @@
 <html>
 <head>
-<title>gh.funthomas424242.webapp.Int.Anmeldung</title>
+<title>gh.funthomas424242.webapp.Int.NavigationPortalSeiten</title>
 <style type="text/css" media="all">
 @import url( "./style/jbehave-core.css" );
 </style>
 </head>
 <body>
-<div class="story">
-<h1></h1>
-<div class="path">gh/funthomas424242/webapp/Int.Anmeldung.story</div>
-<div class="meta">
-<div class="keyword">Meta:</div>
-<div class="property">@author FunThomas424242</div>
-</div>
-<div class="narrative"><h2>Narrative:</h2>
-<div class="element inOrderTo"><span class="keyword inOrderTo">In order to</span> Kochrezepte erfassen zu k&ouml;nnen</div>
-<div class="element asA"><span class="keyword asA">As a</span> Koch</div>
-<div class="element iWantTo"><span class="keyword iWantTo">I want to</span> mich am Portal anmelden k&ouml;nnen
-Damit ich die Funktionen der Webanwendung nutzen kann.</div>
-</div>
-<div class="scenario">
-<h2>Scenario: Erfolgreiche Anmeldung</h2>
+ 
+<script type="syntaxhighlighter" class="brush: xml"><![CDATA[
+<story path="gh/funthomas424242/webapp/Int.NavigationPortalSeiten.story" title="">
+<meta>
+<property keyword="@" name="author" value="FunThomas424242"/>
+</meta>
+<narrative keyword="Narrative:">
+  <inOrderTo keyword="In order to">die Navigation der Portalseiten zu definieren</inOrderTo>
+  <asA keyword="As a">Entwickler</asA>
+  <iWantTo keyword="I want to">alle Navigationswege &#252;ber Stories definieren
+Damit ich die Navigation im Integrationstest pr&#252;fen kann.</iWantTo>
+</narrative>
+<scenario keyword="Scenario:" title="Start Seite anzeigen">
+<step outcome="successful">Gegeben sei die Webserver &#220;bersichtsseite.</step>
+<step outcome="successful">Wenn der erste Link geklickt wird</step>
+<step outcome="successful">Dann wird zur Welcome Seite navigiert.</step>
+</scenario>
+<scenario keyword="Scenario:" title="Navigation zur Login Seite">
+<step outcome="successful">Gegeben sei als aktuelle Seite die Startseite (welcome page).</step>
+<step outcome="successful">Wenn der Link <parameter>Anmelden</parameter> geklickt wird</step>
+<step outcome="successful">Dann wird zur Login Seite navigiert.</step>
+</scenario>
+<scenario keyword="Scenario:" title="">
+</scenario>
+</story>
 
+]]></script>
 </body>
 <!--  SyntaxHighlighter resources:  should be included at end of body -->
 <link rel="stylesheet" type="text/css" href="./style/sh-3.0.83/shCore.css"/>

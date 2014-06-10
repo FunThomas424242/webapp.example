@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>gh.funthomas424242.webapp.Int.Anmeldung</title>
+<title>gh.funthomas424242.webapp.login.Unit.AufbauAnmeldeSeite</title>
 <style type="text/css" media="all">
 @import url( "./style/jbehave-core.css" );
 </style>
@@ -8,19 +8,31 @@
 <body>
 <div class="story">
 <h1></h1>
-<div class="path">gh/funthomas424242/webapp/Int.Anmeldung.story</div>
+<div class="path">gh/funthomas424242/webapp/login/Unit.AufbauAnmeldeSeite.story</div>
 <div class="meta">
 <div class="keyword">Meta:</div>
 <div class="property">@author FunThomas424242</div>
 </div>
 <div class="narrative"><h2>Narrative:</h2>
-<div class="element inOrderTo"><span class="keyword inOrderTo">In order to</span> Kochrezepte erfassen zu k&ouml;nnen</div>
-<div class="element asA"><span class="keyword asA">As a</span> Koch</div>
-<div class="element iWantTo"><span class="keyword iWantTo">I want to</span> mich am Portal anmelden k&ouml;nnen
-Damit ich die Funktionen der Webanwendung nutzen kann.</div>
+<div class="element inOrderTo"><span class="keyword inOrderTo">In order to</span> den Aufbau der Anmelde Seite definieren zu k&ouml;nnen</div>
+<div class="element asA"><span class="keyword asA">As a</span> Entwickler</div>
+<div class="element iWantTo"><span class="keyword iWantTo">I want to</span> alle Modultests als Stories definieren
+Damit ich auch den Modultest mittels BDD automatisiert durchf&uuml;hren kann.</div>
 </div>
 <div class="scenario">
-<h2>Scenario: Erfolgreiche Anmeldung</h2>
+<h2>Scenario: Anmeldeseite Seitenelemente pr&uuml;fen</h2>
+<div class="step successful">Gegeben sei die Datei login.html.</div>
+<div class="step successful">Wenn der Seitentitel lautet <span class="step parameter">Login</span></div>
+<div class="step successful">Und die &Uuml;berschrift Ebene1 mit der Id <span class="step parameter">welcome</span> lautet <span class="step parameter">Anmeldung</span></div>
+<div class="step successful">Wenn das Eingabefeld mit Id <span class="step parameter">user</span> existiert</div>
+<div class="step successful">Und das Passwordfeld mit Id <span class="step parameter">password</span> existiert</div>
+<div class="step successful">Wenn der Button mit der Id <span class="step parameter">ok</span> vom Typ <span class="step parameter">submit</span> und der Beschriftung <span class="step parameter">Anmelden</span> existiert</div>
+<div class="step successful">Dann war der Test erfolgreich.</div>
+</div>
+<div class="scenario">
+<h2>Scenario: </h2>
+</div>
+</div>
 
 </body>
 <!--  SyntaxHighlighter resources:  should be included at end of body -->
