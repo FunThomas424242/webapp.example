@@ -1,6 +1,9 @@
 package gh.funthomas424242.webapp.selenium;
 
-import gh.funthomas424242.webapp.login.LoginPage;
+import gh.funthomas424242.lib.selenium.SeleniumPage;
+import gh.funthomas424242.webapp.login.AnmeldeSeite;
+import gh.funthomas424242.webapp.welcome.EntryPage;
+import gh.funthomas424242.webapp.welcome.WelcomePage;
 
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
@@ -16,6 +19,8 @@ import com.gargoylesoftware.htmlunit.html.HtmlPasswordInput;
 
 public class SeleniumSteps extends PerStoriesWebDriverSteps {
 
+    private SeleniumPage currentPage;
+
     public SeleniumSteps(final WebDriverProvider driverProvider) {
         super(driverProvider);
     }
@@ -30,8 +35,6 @@ public class SeleniumSteps extends PerStoriesWebDriverSteps {
         // Beenden erst wenn alle Scenarios durch sind
     }
 
-    private AbstractPage currentPage;
-
     @Given("sei die Webserver Übersichtsseite.")
     public void atServerHome() {
         this.currentPage = new EntryPage(getDriverProvider()).open();
@@ -44,7 +47,7 @@ public class SeleniumSteps extends PerStoriesWebDriverSteps {
 
     @Given("sei als aktuelle Seite die Loginseite.")
     public void atLoginFile() {
-        this.currentPage = new LoginPage(getDriverProvider()).open();
+        this.currentPage = new AnmeldeSeite(getDriverProvider()).open();
     }
 
     @When("der erste Link geklickt wird")
@@ -52,10 +55,10 @@ public class SeleniumSteps extends PerStoriesWebDriverSteps {
         this.currentPage.findElement(By.tagName("a")).click();
     }
 
-    @When("die Seite betrachtet wird")
-    public void noOperation() {
-
-    }
+    // @When("die Seite betrachtet wird")
+    // public void noOperation() {
+    //
+    // }
 
     @When("der Link $linkTitel geklickt wird")
     public void anElementIsAdded(final String linkText) {
@@ -126,7 +129,7 @@ public class SeleniumSteps extends PerStoriesWebDriverSteps {
 
     @Then("wird zur Login Seite navigiert.")
     public void currentPageIsLogin() {
-        Assert.assertEquals(LoginPage.PAGE_URL,
+        Assert.assertEquals(AnmeldeSeite.PAGE_URL,
                 this.currentPage.getCurrentUrl());
     }
 

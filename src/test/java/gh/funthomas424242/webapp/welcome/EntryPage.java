@@ -1,8 +1,10 @@
-package gh.funthomas424242.webapp.selenium;
+package gh.funthomas424242.webapp.welcome;
+
+import gh.funthomas424242.lib.selenium.SeleniumPage;
 
 import org.jbehave.web.selenium.WebDriverProvider;
 
-public class EntryPage extends AbstractPage {
+public class EntryPage extends SeleniumPage {
 
     public static final String PAGE_URL = "http://localhost:8080";
 

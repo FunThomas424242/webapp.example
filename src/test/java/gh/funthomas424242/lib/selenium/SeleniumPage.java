@@ -1,6 +1,4 @@
-package gh.funthomas424242.webapp.selenium;
-
-import gh.funthomas424242.webapp.login.LoginPage;
+package gh.funthomas424242.lib.selenium;
 
 import java.util.concurrent.TimeUnit;
 
@@ -8,11 +6,11 @@ import org.jbehave.web.selenium.WebDriverPage;
 import org.jbehave.web.selenium.WebDriverProvider;
 import org.openqa.selenium.By;
 
-public abstract class AbstractPage extends WebDriverPage {
+public abstract class SeleniumPage extends WebDriverPage {
 
     abstract public String getPageUrl();
 
-    public AbstractPage(final WebDriverProvider driverProvider) {
+    public SeleniumPage(final WebDriverProvider driverProvider) {
         super(driverProvider);
     }
 
@@ -25,19 +23,7 @@ public abstract class AbstractPage extends WebDriverPage {
         return findElement(By.id(id)).getText();
     }
 
-    public AbstractPage getEntryPage() {
-        return new EntryPage(getDriverProvider());
-    }
-
-    public WelcomePage getWelcomePage() {
-        return new WelcomePage(getDriverProvider());
-    }
-
-    public AbstractPage getLoginPage() {
-        return new LoginPage(getDriverProvider());
-    }
-
-    public AbstractPage open() {
+    public SeleniumPage open() {
         get(getPageUrl());
         manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         return this;

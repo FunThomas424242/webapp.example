@@ -80,9 +80,4 @@ public class HtmlUnitSteps extends Steps {
 
     }
 
-    @Then("waren alle Tests erfolgreich und der Speicher kann bereinigt werden.")
-    public void theAfterClasse() {
-
-    }
-
 }

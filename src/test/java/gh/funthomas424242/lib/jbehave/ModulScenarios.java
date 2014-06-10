@@ -1,7 +1,6 @@
-package gh.funthomas424242.webapp;
+package gh.funthomas424242.lib.jbehave;
 
 import gh.funthomas424242.lib.htmlunit.HtmlUnitSteps;
-import gh.funthomas424242.lib.jbehave.ConfigurationHelper;
 
 import java.util.List;
 

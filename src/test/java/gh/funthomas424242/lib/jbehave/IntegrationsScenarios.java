@@ -1,6 +1,5 @@
-package gh.funthomas424242.webapp;
+package gh.funthomas424242.lib.jbehave;
 
-import gh.funthomas424242.lib.jbehave.ConfigurationHelper;
 import gh.funthomas424242.webapp.selenium.SeleniumSteps;
 
 import java.util.List;
