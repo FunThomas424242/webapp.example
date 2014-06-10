@@ -19,10 +19,6 @@ import org.jbehave.web.selenium.WebDriverSteps;
 
 public class IntegrationsScenarios extends JUnitStories {
 
-    private final WebDriverProvider driverProvider = new PropertyWebDriverProvider();
-    private final WebDriverSteps lifecycleSteps = new PerStoriesWebDriverSteps(
-            this.driverProvider);
-
     final Configuration configuration;
 
     public IntegrationsScenarios() {
@@ -45,10 +41,14 @@ public class IntegrationsScenarios extends JUnitStories {
 
     @Override
     public InjectableStepsFactory stepsFactory() {
-        return new InstanceStepsFactory(this.configuration(),
-                new SeleniumSteps(this.driverProvider), this.lifecycleSteps,
-                new WebDriverScreenshotOnFailure(this.driverProvider, this
-                        .configuration().storyReporterBuilder()));
+        final WebDriverProvider driverProvider = new PropertyWebDriverProvider();
+        final WebDriverSteps lifecycleSteps = new PerStoriesWebDriverSteps(
+                driverProvider);
+        final SeleniumSteps steps = new SeleniumSteps(driverProvider);
+        return new InstanceStepsFactory(this.configuration(), steps,
+                lifecycleSteps, new WebDriverScreenshotOnFailure(
+                        driverProvider, this.configuration()
+                                .storyReporterBuilder()));
     }
 
     @Override

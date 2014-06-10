@@ -18,10 +18,6 @@ public class StoryMap extends JUnitStoryMaps {
 
     private final Configuration configuration;
 
-    private final WebDriverProvider driverProvider = new PropertyWebDriverProvider();
-    private final WebDriverSteps lifecycleSteps = new PerStoriesWebDriverSteps(
-            this.driverProvider);
-
     public StoryMap() {
 
         this.configuration = new ConfigurationHelper()
@@ -42,9 +38,12 @@ public class StoryMap extends JUnitStoryMaps {
 
     @Override
     public InjectableStepsFactory stepsFactory() {
+        final WebDriverProvider driverProvider = new PropertyWebDriverProvider();
+        final WebDriverSteps lifecycleSteps = new PerStoriesWebDriverSteps(
+                driverProvider);
         return new InstanceStepsFactory(this.configuration(),
-                new SeleniumSteps(this.driverProvider), this.lifecycleSteps,
-                new WebDriverScreenshotOnFailure(this.driverProvider, this
+                new SeleniumSteps(driverProvider), lifecycleSteps,
+                new WebDriverScreenshotOnFailure(driverProvider, this
                         .configuration().storyReporterBuilder()));
     }
 

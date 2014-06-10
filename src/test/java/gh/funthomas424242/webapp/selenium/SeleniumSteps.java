@@ -27,12 +27,12 @@ public class SeleniumSteps extends PerStoriesWebDriverSteps {
 
     @Override
     public void beforeStories() throws Exception {
-        // Initialisierung erfolgt bereits im Scenario
+        // super.beforeStories();
     }
 
     @Override
     public void afterStories() throws Exception {
-        // Beenden erst wenn alle Scenarios durch sind
+        // super.afterStories();
     }
 
     @Given("sei die Webserver Übersichtsseite.")
@@ -54,11 +54,6 @@ public class SeleniumSteps extends PerStoriesWebDriverSteps {
     public void anElementIsAdded() {
         this.currentPage.findElement(By.tagName("a")).click();
     }
-
-    // @When("die Seite betrachtet wird")
-    // public void noOperation() {
-    //
-    // }
 
     @When("der Link $linkTitel geklickt wird")
     public void anElementIsAdded(final String linkText) {
