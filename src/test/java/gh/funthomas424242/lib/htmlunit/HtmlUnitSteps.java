@@ -1,4 +1,4 @@
-package gh.funthomas424242.webapp;
+package gh.funthomas424242.lib.htmlunit;
 
 import java.io.File;
 
@@ -50,7 +50,6 @@ public class HtmlUnitSteps extends Steps {
     public void anInputField(final String id) {
         final HtmlTextInput userField = page.getHtmlElementById(id);
         Assert.assertNotNull(userField);
-
     }
 
     @When("das Passwordfeld mit Id $id existiert")

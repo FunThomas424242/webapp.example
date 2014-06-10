@@ -1,8 +1,6 @@
-package gh.funthomas424242.webapp;
+package gh.funthomas424242.webapp.selenium;
 
-import gh.funthomas424242.webapp.selenium.helper.AbstractPage;
-import gh.funthomas424242.webapp.selenium.helper.LoginPage;
-import gh.funthomas424242.webapp.selenium.helper.WelcomePage;
+import gh.funthomas424242.webapp.login.LoginPage;
 
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
@@ -15,11 +13,11 @@ import org.openqa.selenium.WebElement;
 import com.gargoylesoftware.htmlunit.html.HtmlInput;
 import com.gargoylesoftware.htmlunit.html.HtmlPasswordInput;
 
-public class PortalSteps extends Steps {
+public class SeleniumSteps extends Steps {
 
     private AbstractPage currentPage;
 
-    public PortalSteps(final AbstractPage page) {
+    public SeleniumSteps(final AbstractPage page) {
         this.currentPage = page;
     }
 

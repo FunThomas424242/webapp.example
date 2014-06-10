@@ -1,4 +1,6 @@
-package gh.funthomas424242.webapp.selenium.helper;
+package gh.funthomas424242.webapp.login;
+
+import gh.funthomas424242.webapp.selenium.AbstractPage;
 
 import org.jbehave.web.selenium.WebDriverProvider;
 

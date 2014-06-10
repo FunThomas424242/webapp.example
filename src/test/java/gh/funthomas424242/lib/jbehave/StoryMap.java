@@ -1,8 +1,8 @@
-package gh.funthomas424242.webapp.jbehave.helper;
+package gh.funthomas424242.lib.jbehave;
 
-import gh.funthomas424242.webapp.PortalSteps;
-import gh.funthomas424242.webapp.selenium.helper.AbstractPage;
-import gh.funthomas424242.webapp.selenium.helper.EntryPage;
+import gh.funthomas424242.webapp.selenium.AbstractPage;
+import gh.funthomas424242.webapp.selenium.EntryPage;
+import gh.funthomas424242.webapp.selenium.SeleniumSteps;
 
 import java.util.List;
 
@@ -46,7 +46,7 @@ public class StoryMap extends JUnitStoryMaps {
 
     @Override
     public InjectableStepsFactory stepsFactory() {
-        return new InstanceStepsFactory(this.configuration(), new PortalSteps(
+        return new InstanceStepsFactory(this.configuration(), new SeleniumSteps(
                 this.pages), this.lifecycleSteps,
                 new WebDriverScreenshotOnFailure(this.driverProvider, this
                         .configuration().storyReporterBuilder()));

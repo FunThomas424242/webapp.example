@@ -1,4 +1,6 @@
-package gh.funthomas424242.webapp.selenium.helper;
+package gh.funthomas424242.webapp.selenium;
+
+import gh.funthomas424242.webapp.login.LoginPage;
 
 import java.util.concurrent.TimeUnit;
 

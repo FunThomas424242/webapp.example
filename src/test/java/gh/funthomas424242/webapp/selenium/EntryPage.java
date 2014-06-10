@@ -1,4 +1,4 @@
-package gh.funthomas424242.webapp.selenium.helper;
+package gh.funthomas424242.webapp.selenium;
 
 import org.jbehave.web.selenium.WebDriverProvider;
 

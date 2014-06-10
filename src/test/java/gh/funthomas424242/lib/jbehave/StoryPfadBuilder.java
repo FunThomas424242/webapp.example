@@ -1,4 +1,4 @@
-package gh.funthomas424242.webapp.jbehave.helper;
+package gh.funthomas424242.lib.jbehave;
 
 import java.net.MalformedURLException;
 import java.net.URL;
