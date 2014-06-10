@@ -2,6 +2,8 @@ package gh.funthomas424242.lib.htmlunit;
 
 import java.io.File;
 
+import org.jbehave.core.annotations.AfterScenario;
+import org.jbehave.core.annotations.BeforeScenario;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
@@ -18,16 +20,23 @@ import com.gargoylesoftware.htmlunit.html.HtmlTextInput;
 public class HtmlUnitSteps extends Steps {
 
     static final WebClient webClient = new WebClient();
-    final String filePathPrefix;
+
+    String filePathPrefix;
 
     static HtmlPage page;
 
-    public HtmlUnitSteps() {
+    @BeforeScenario
+    public void setUpStory() {
         final String userDir = System.getProperty("user.dir");
         final String testDir = userDir + File.separator + "src"
                 + File.separator + "main" + File.separator + "webapp"
                 + File.separator;
         this.filePathPrefix = testDir;
+    }
+
+    @AfterScenario
+    public void tearDownStory() {
+        webClient.closeAllWindows();
     }
 
     @Given("sei die Datei $fileName.")
@@ -73,7 +82,7 @@ public class HtmlUnitSteps extends Steps {
 
     @Then("waren alle Tests erfolgreich und der Speicher kann bereinigt werden.")
     public void theAfterClasse() {
-        webClient.closeAllWindows();
+
     }
 
 }
