@@ -4,11 +4,9 @@ import gh.funthomas424242.webapp.PortalSteps;
 import gh.funthomas424242.webapp.selenium.helper.AbstractPage;
 import gh.funthomas424242.webapp.selenium.helper.EntryPage;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.jbehave.core.configuration.Configuration;
-import org.jbehave.core.io.StoryFinder;
 import org.jbehave.core.junit.JUnitStoryMaps;
 import org.jbehave.core.steps.InjectableStepsFactory;
 import org.jbehave.core.steps.InstanceStepsFactory;
@@ -17,6 +15,7 @@ import org.jbehave.web.selenium.PropertyWebDriverProvider;
 import org.jbehave.web.selenium.WebDriverProvider;
 import org.jbehave.web.selenium.WebDriverScreenshotOnFailure;
 import org.jbehave.web.selenium.WebDriverSteps;
+
 
 public class StoryMap extends JUnitStoryMaps {
 
@@ -42,12 +41,7 @@ public class StoryMap extends JUnitStoryMaps {
 
     @Override
     protected List<String> metaFilters() {
-        final ArrayList<String> filters = new ArrayList<String>();
-        filters.add("+author *");
-        filters.add("themes *");
-        filters.add("-modul");
-        filters.add("-skip");
-        return filters;
+        return new ConfigurationHelper().getMetaFilters();
     }
 
     @Override
@@ -60,11 +54,7 @@ public class StoryMap extends JUnitStoryMaps {
 
     @Override
     protected List<String> storyPaths() {
-
-        final List<String> stories = new StoryFinder().findPaths(
-                new StoryPfadBuilder().getStartURL(), "**/*.story", "");
-        return stories;
-
+        return new ConfigurationHelper().getIntegrationStoriesPaths();
     }
 
 }

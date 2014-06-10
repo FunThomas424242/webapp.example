@@ -19,7 +19,6 @@ import org.jbehave.web.selenium.WebDriverProvider;
 import org.jbehave.web.selenium.WebDriverScreenshotOnFailure;
 import org.jbehave.web.selenium.WebDriverSteps;
 
-//@RunWith(JUnitReportingRunner.class)
 public class IntegrationsScenarios extends JUnitStories {
 
     private final WebDriverProvider driverProvider = new PropertyWebDriverProvider();
@@ -38,7 +37,6 @@ public class IntegrationsScenarios extends JUnitStories {
 
         final EmbedderControls embedderControls = embedder.embedderControls();
         embedderControls.doSkip(false);
-        // embedderControls.doVerboseFiltering(true);
         embedder.useExecutorService(new SameThreadExecutors()
                 .create(embedderControls));
     }

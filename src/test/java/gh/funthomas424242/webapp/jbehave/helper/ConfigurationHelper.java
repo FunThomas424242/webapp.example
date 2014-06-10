@@ -1,5 +1,7 @@
 package gh.funthomas424242.webapp.jbehave.helper;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import org.jbehave.core.configuration.Configuration;
@@ -9,6 +11,7 @@ import org.jbehave.core.failures.RethrowingFailure;
 import org.jbehave.core.i18n.LocalizedKeywords;
 import org.jbehave.core.io.AbsolutePathCalculator;
 import org.jbehave.core.io.LoadFromClasspath;
+import org.jbehave.core.io.StoryFinder;
 import org.jbehave.core.io.UnderscoredCamelCaseResolver;
 import org.jbehave.core.parsers.RegexPrefixCapturingPatternParser;
 import org.jbehave.core.parsers.RegexStoryParser;
@@ -132,4 +135,27 @@ public class ConfigurationHelper {
         configuration.useStoryReporterBuilder(getReportBuilder());
         return configuration;
     }
+
+    public List<String> getMetaFilters() {
+        final ArrayList<String> filters = new ArrayList<String>();
+        filters.add("+author *");
+        filters.add("themes *");
+        filters.add("-skip");
+        return filters;
+    }
+
+    public List<String> getUnitStoriesPaths() {
+        final List<String> stories = new StoryFinder().findPaths(
+                new StoryPfadBuilder().getStartURL(),
+                StoryPfadBuilder.UNIT_STORY_PATTERN, "");
+        return stories;
+    }
+
+    public List<String> getIntegrationStoriesPaths() {
+        final List<String> stories = new StoryFinder().findPaths(
+                new StoryPfadBuilder().getStartURL(),
+                StoryPfadBuilder.INTEGRATION_STORY_PATTERN, "");
+        return stories;
+    }
+
 }

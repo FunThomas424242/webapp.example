@@ -12,7 +12,6 @@ import org.jbehave.core.junit.JUnitStories;
 import org.jbehave.core.steps.InjectableStepsFactory;
 import org.jbehave.core.steps.InstanceStepsFactory;
 
-//@RunWith(JUnitReportingRunner.class)
 public class ModulScenarios extends JUnitStories {
 
     final Configuration configuration;
@@ -26,7 +25,6 @@ public class ModulScenarios extends JUnitStories {
 
         final EmbedderControls embedderControls = embedder.embedderControls();
         embedderControls.doSkip(false);
-        // embedderControls.doVerboseFiltering(true);
         embedder.useExecutorService(new SameThreadExecutors()
                 .create(embedderControls));
 
