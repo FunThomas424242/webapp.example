@@ -10,12 +10,12 @@
         </links>
         <menu name="Allgemeines">
             <item name="Willkommen bei" href="index.html" />
-            <item name="Story Reports" href="jbehave/view/index.html" />
-            <item name="JS Coverage" href="coverage/total-report.html"/>
+            <item name="Unittest Reports" href="unittest/view/index.html" />
+            <item name="Inttest Reports" href="inttest/view/index.html" />
+            <item name="JS Coverage" href="coverage/total-report.html" />
             <item name="Seitenübersicht" href="sitemap.html" />
         </menu>
         <menu ref="reports" />
-
     </body>
     <poweredBy>
         <logo name="Maven" href="http://maven.apache.org/"

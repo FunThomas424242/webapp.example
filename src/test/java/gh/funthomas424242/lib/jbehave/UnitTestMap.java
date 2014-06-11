@@ -14,14 +14,15 @@ import org.jbehave.web.selenium.WebDriverProvider;
 import org.jbehave.web.selenium.WebDriverScreenshotOnFailure;
 import org.jbehave.web.selenium.WebDriverSteps;
 
-public class StoryMap extends JUnitStoryMaps {
+public class UnitTestMap extends JUnitStoryMaps {
 
     private final Configuration configuration;
 
-    public StoryMap() {
+    public UnitTestMap() {
 
         this.configuration = new ConfigurationHelper()
-                .getProjectSpecificConfiguration();
+                .getProjectSpecificConfiguration(new ConfigurationHelper()
+                        .getUnittestReportBuilder());
 
         configuredEmbedder().useMetaFilters(metaFilters());
     }
@@ -49,7 +50,7 @@ public class StoryMap extends JUnitStoryMaps {
 
     @Override
     protected List<String> storyPaths() {
-        return new ConfigurationHelper().getIntegrationStoriesPaths();
+        return new ConfigurationHelper().getUnitStoriesPaths();
     }
 
 }

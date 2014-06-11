@@ -18,7 +18,8 @@ public class ModulScenarios extends JUnitStories {
 
     public ModulScenarios() {
         this.configuration = new ConfigurationHelper()
-                .getProjectSpecificConfiguration();
+                .getProjectSpecificConfiguration(new ConfigurationHelper()
+                        .getUnittestReportBuilder());
 
         final Embedder embedder = configuredEmbedder();
         embedder.useMetaFilters(new ConfigurationHelper().getMetaFilters());

@@ -68,7 +68,8 @@ public class ConfigurationHelper {
         return configuration;
     }
 
-    public Configuration getProjectSpecificConfiguration() {
+    public Configuration getProjectSpecificConfiguration(
+            final StoryReporterBuilder storyReporterBuilder) {
 
         final Configuration configuration = new Configuration() {
         };
@@ -96,13 +97,31 @@ public class ConfigurationHelper {
         configuration.useStoryParser(new RegexStoryParser(configuration
                 .keywords()));
         configuration.useStoryPathResolver(new UnderscoredCamelCaseResolver());
-        configuration.useStoryReporterBuilder(getReportBuilder());
+        configuration.useStoryReporterBuilder(storyReporterBuilder);
         configuration.useViewGenerator(new FreemarkerViewGenerator());
         return configuration;
     }
 
-    private StoryReporterBuilder getReportBuilder() {
-        return new StoryReporterBuilder().withRelativeDirectory("site/jbehave")
+    public StoryReporterBuilder getUnittestReportBuilder() {
+        return new StoryReporterBuilder()
+                .withRelativeDirectory("site/unittest")
+                // .withCodeLocation(
+                // CodeLocations
+                // .codeLocationFromClass(embeddableClass))
+
+                // .withDefaultFormats()
+                // .withViewResources(viewResources)
+
+                .withFormats(Format.STATS, Format.HTML, Format.TXT, Format.XML)
+
+        // , Format.CONSOLE)
+        // .withFailureTrace(true).withFailureTraceCompression(true)
+        // .withCrossReference(this.xref)
+        ;
+    }
+
+    public StoryReporterBuilder getInttestReportBuilder() {
+        return new StoryReporterBuilder().withRelativeDirectory("site/inttest")
         // .withCodeLocation(
         // CodeLocations
         // .codeLocationFromClass(embeddableClass))
@@ -118,7 +137,8 @@ public class ConfigurationHelper {
         ;
     }
 
-    public Configuration getSeleniumConfiguration() {
+    public Configuration getSeleniumConfiguration(
+            final StoryReporterBuilder storyReporterBuilder) {
         final SeleniumConfiguration configuration = new SeleniumConfiguration() {
         };
         final SeleniumContext seleniumContext = new SeleniumContext();
@@ -132,7 +152,7 @@ public class ConfigurationHelper {
         configuration.useStepMonitor(new SeleniumStepMonitor(contextView,
                 seleniumContext, new SilentStepMonitor()));
         //
-        configuration.useStoryReporterBuilder(getReportBuilder());
+        configuration.useStoryReporterBuilder(storyReporterBuilder);
         return configuration;
     }
 
