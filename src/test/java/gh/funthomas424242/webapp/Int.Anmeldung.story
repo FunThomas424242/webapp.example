@@ -28,3 +28,22 @@ Dann wird die Meldung Ihre Anmeldung war nicht erfolgreich - Bitte prüfen Sie I
 
 
 
+Szenario: sonstiges
+ // Button mit Hinweis Anmeldung erfolgreich
+        // final HtmlLabel okMeldung = (HtmlLabel) page
+        // .getHtmlElementById("meldung_ok");
+        // Assert.assertEquals("Ihre Anmeldung war erfolgreich.",
+        // okMeldung.asText());
+        // Assert.assertEquals("hide", okMeldung.getAttribute("visible"));
+        //
+        // // Button mit Hinweis Anmeldung fehlgeschlagen
+        // final HtmlLabel errorMeldung = (HtmlLabel) page
+        // .getHtmlElementById("meldung_error");
+        // Assert.assertEquals(
+        // "Ihre Anmeldung ist nicht erfolgt - bitte Zugangsdaten prüfen.",
+        // errorMeldung.asText());
+        // Assert.assertEquals("hide", errorMeldung.getAttribute("visible"));
+
+
+
+

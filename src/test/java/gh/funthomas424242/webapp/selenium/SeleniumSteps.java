@@ -40,7 +40,7 @@ public class SeleniumSteps extends PerStoriesWebDriverSteps {
         this.currentPage = new EntryPage(getDriverProvider()).open();
     }
 
-    @Given("sei als aktuelle Seite die Startseite (welcome page).")
+    @Given("sei als aktuelle Seite die Welcome Seite.")
     public void atWeclcomeFile() {
         this.currentPage = new WelcomePage(getDriverProvider()).open();
     }

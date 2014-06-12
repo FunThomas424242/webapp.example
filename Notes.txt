@@ -1,0 +1,7 @@
+http://www.web-spirit.de/tutorial/html-formulare-effektiv-gestalten
+http://proglang.informatik.uni-freiburg.de/teaching/inetprog/2006/v-2006-06-26.pdf
+http://www3.ntu.edu.sg/home/ehchua/programming/java/JSPByExample.html
+http://www.xyzws.com/Servletfaq/what-is-the-difference-between-the-request-attribute-and-request-parameter/1
+http://www.tutorialspoint.com/jsp/jsp_expression_language.htm
+http://stackoverflow.com/questions/4764405/how-to-use-relative-paths-without-including-the-context-root-name
+

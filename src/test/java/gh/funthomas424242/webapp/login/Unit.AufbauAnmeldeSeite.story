@@ -2,7 +2,7 @@ Meta:
 @author FunThomas424242
 
 Erzählung:
-Um den Aufbau der Anmelde Seite definieren zu können
+Um die Login Seite implementieren zu können
 Als Entwickler
 Möchte ich alle Modultests als Stories definieren
 Damit ich auch den Modultest mittels BDD automatisiert durchführen kann. 
@@ -18,6 +18,12 @@ Wenn das Eingabefeld mit Id user existiert
 Und das Passwordfeld mit Id password existiert
 Wenn der Button mit der Id ok vom Typ submit und der Beschriftung Anmelden existiert
 Dann war der Test erfolgreich.
+
+Szenario: Erfolgreiche Anmeldung
+Meta:
+@skip
+@themes GUI, modul
+Gegeben sei die Datei login.html.
 
 
 
