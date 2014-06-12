@@ -392,9 +392,13 @@
                     <!-- SLF4J API <dependency> <groupId>org.slf4j</groupId> 
                         <artifactId>slf4j-api</artifactId> </dependency> -->
 
-                    <!-- Deploy our required library versions <dependency> 
-                        <groupId>commons-lang</groupId> <artifactId>commons-lang</artifactId> <version>2.4</version> 
-                        <optional>false</optional> </dependency> -->
+                    <!-- Deploy our required library versions -->
+                    <dependency>
+                        <groupId>commons-lang</groupId>
+                        <artifactId>commons-lang</artifactId>
+                        <version>2.4</version>
+                        <optional>false</optional>
+                    </dependency>
 
                     <!-- Deploy JSF libs <dependency> <groupId>javax.faces</groupId> 
                         <artifactId>jsf-api</artifactId> <version>${jsf.version}</version> </dependency> 
@@ -437,6 +441,11 @@
         </plugins>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>org.apache.ant</groupId>
+                    <artifactId>ant</artifactId>
+                    <version>1.8.1</version>
+                </plugin>
                 <plugin>
                     <groupId>com.github.timurstrekalov</groupId>
                     <artifactId>saga-maven-plugin</artifactId>
