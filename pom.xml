@@ -393,12 +393,10 @@
                         <artifactId>slf4j-api</artifactId> </dependency> -->
 
                     <!-- Deploy our required library versions -->
-                    <dependency>
-                        <groupId>commons-lang</groupId>
-                        <artifactId>commons-lang</artifactId>
-                        <version>2.4</version>
-                        <optional>false</optional>
-                    </dependency>
+
+
+                    <!-- <dependency> <groupId>jetty</groupId> <artifactId>jasper-runtime</artifactId> 
+                        <version>4.2.20RC0</version> </dependency> -->
 
                     <!-- Deploy JSF libs <dependency> <groupId>javax.faces</groupId> 
                         <artifactId>jsf-api</artifactId> <version>${jsf.version}</version> </dependency> 
@@ -455,6 +453,17 @@
                     <groupId>org.jbehave</groupId>
                     <artifactId>jbehave-maven-plugin</artifactId>
                     <version>${jbehave.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>commons-lang</groupId>
+                    <artifactId>commons-lang</artifactId>
+                    <version>2.4</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>jetty</groupId>
+                    <artifactId>servlet-api</artifactId>
+                    <version>2.5-6.0.2</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-site-plugin</artifactId>
