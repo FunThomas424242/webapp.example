@@ -1,0 +1,11 @@
+
+(gh/funthomas424242/webapp/Int.Anmeldung.story)
+Meta:
+@author FunThomas424242
+
+Narrative:
+In order to Kochrezepte erfassen zu können
+As a Koch
+I want to mich am Portal anmelden können
+Damit ich die Funktionen der Webanwendung nutzen kann.
+Scenario: Erfolgreiche Anmeldung

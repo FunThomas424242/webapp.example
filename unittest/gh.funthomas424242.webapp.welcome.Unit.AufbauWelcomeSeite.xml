@@ -1,0 +1,17 @@
+<story path="gh/funthomas424242/webapp/welcome/Unit.AufbauWelcomeSeite.story" title="">
+<meta>
+<property keyword="@" name="author" value="FunThomas424242"/>
+</meta>
+<narrative keyword="Narrative:">
+  <inOrderTo keyword="In order to">den Aufbau der Welcome Seite definieren zu k&#246;nnen</inOrderTo>
+  <asA keyword="As a">Entwickler</asA>
+  <iWantTo keyword="I want to">alle Modultests als Stories definieren
+Damit ich auch den Modultest mittels BDD automatisiert durchf&#252;hren kann.</iWantTo>
+</narrative>
+<scenario keyword="Scenario:" title="Welcome Seite Kontextbeschreibung">
+<step outcome="successful">Gegeben sei die Datei index.html.</step>
+<step outcome="successful">Wenn der Seitentitel lautet <parameter>Willkommen</parameter></step>
+<step outcome="successful">Und die &#220;berschrift Ebene1 mit der Id <parameter>welcome</parameter> lautet <parameter>Beispiel Web-Anwendung</parameter></step>
+<step outcome="successful">Dann war der Test erfolgreich.</step>
+</scenario>
+</story>

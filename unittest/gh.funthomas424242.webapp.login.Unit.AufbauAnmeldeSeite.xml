@@ -1,0 +1,22 @@
+<story path="gh/funthomas424242/webapp/login/Unit.AufbauAnmeldeSeite.story" title="">
+<meta>
+<property keyword="@" name="author" value="FunThomas424242"/>
+</meta>
+<narrative keyword="Narrative:">
+  <inOrderTo keyword="In order to">den Aufbau der Anmelde Seite definieren zu k&#246;nnen</inOrderTo>
+  <asA keyword="As a">Entwickler</asA>
+  <iWantTo keyword="I want to">alle Modultests als Stories definieren
+Damit ich auch den Modultest mittels BDD automatisiert durchf&#252;hren kann.</iWantTo>
+</narrative>
+<scenario keyword="Scenario:" title="Anmeldeseite Seitenelemente pr&#252;fen">
+<step outcome="successful">Gegeben sei die Datei login.html.</step>
+<step outcome="successful">Wenn der Seitentitel lautet <parameter>Login</parameter></step>
+<step outcome="successful">Und die &#220;berschrift Ebene1 mit der Id <parameter>welcome</parameter> lautet <parameter>Anmeldung</parameter></step>
+<step outcome="successful">Wenn das Eingabefeld mit Id <parameter>user</parameter> existiert</step>
+<step outcome="successful">Und das Passwordfeld mit Id <parameter>password</parameter> existiert</step>
+<step outcome="successful">Wenn der Button mit der Id <parameter>ok</parameter> vom Typ <parameter>submit</parameter> und der Beschriftung <parameter>Anmelden</parameter> existiert</step>
+<step outcome="successful">Dann war der Test erfolgreich.</step>
+</scenario>
+<scenario keyword="Scenario:" title="">
+</scenario>
+</story>

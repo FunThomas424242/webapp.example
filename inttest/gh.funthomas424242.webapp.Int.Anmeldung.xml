@@ -1,0 +1,11 @@
+<story path="gh/funthomas424242/webapp/Int.Anmeldung.story" title="">
+<meta>
+<property keyword="@" name="author" value="FunThomas424242"/>
+</meta>
+<narrative keyword="Narrative:">
+  <inOrderTo keyword="In order to">Kochrezepte erfassen zu k&#246;nnen</inOrderTo>
+  <asA keyword="As a">Koch</asA>
+  <iWantTo keyword="I want to">mich am Portal anmelden k&#246;nnen
+Damit ich die Funktionen der Webanwendung nutzen kann.</iWantTo>
+</narrative>
+<scenario keyword="Scenario:" title="Erfolgreiche Anmeldung">
