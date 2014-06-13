@@ -1,3 +1,6 @@
+Quellen
+=======
+http://blog.desarrolloagil.es/2013/05/developing-javascript-web-apps-with.html
 http://www.web-spirit.de/tutorial/html-formulare-effektiv-gestalten
 http://proglang.informatik.uni-freiburg.de/teaching/inetprog/2006/v-2006-06-26.pdf
 http://www3.ntu.edu.sg/home/ehchua/programming/java/JSPByExample.html
@@ -5,3 +8,33 @@ http://www.xyzws.com/Servletfaq/what-is-the-difference-between-the-request-attri
 http://www.tutorialspoint.com/jsp/jsp_expression_language.htm
 http://stackoverflow.com/questions/4764405/how-to-use-relative-paths-without-including-the-context-root-name
 
+Erfahrungen
+===========
+1. HTML Dateien lassen sich statisch analysieren mit HTMLUnit
+2. Dynamische Aspekte lassen sich per jsp, javafx, jsf, javascript oder ähnlichen realisieren
+3. JSP Seiten sind nur bei laufenden Server testbar, da erst dann das Compilat vorliegt und das HTML zur Verfügung steht
+4. JavaFX wird ignoriert, da in einem späteren Projekt geplant
+5. JSF ist mit Kanonen auf Spatzen schiessen, dann lieber FX oder als späteres Projekt
+6. Ideale Kombi wäre reines HTML mit CSS und JavaScript. 
+   Den Unittest dann mit htmlunit und sage planen
+   Der Integrationstest mit selenium bei laufenden server
+7. JavaScript ist die Hölle und nix für Java Entwickler, daher muss ein Framework her:
+   1. Versuch angularJS weils hipp ist und man auch Apps damit bauen kann.
+   2. Aktueller Wissensstand keine Ahnung von dem Zeug -> früher Giftschrank
+   3. Es kann so schlecht nicht sein - es hat eine Homepage ;) https://angularjs.org/ und stammt von google :)
+   
+   
+Testbarkeit
+===========
+1. Eine Webanwendung bietet für Unit Tests folgende Dateiarten: html, css, js, java
+2. Unit Tests lohnen sich nur wenn sie ohne Serverstart funktionieren, also nur statische Analyse
+3. Integrationstest sollten weniger sein als Unittests und nur mit Server End2End Test
+4. Tools für Integrationstest Selenium 
+5. Jbehave lässt sich sowohl zur Int wie auch Modultest Steuerung benutzen eignet sich aber für Unittest weniger, da die Fehlersuche nicht debugbar ist
+6. JUnit als Testdriver eignet sich für Unit Test ausgezeichnet:
+   a) Testfälle können manuell und einzeln ausgeführt werden
+   b) Testfälle können leicht debugged werden
+7. Unit Tests laufen eher auf Strukturanalyse hinaus, sind alle Elemente vorhanden und ist Barrierefreiheit gewährleistet
+8. Int Tests laufen eher auf Navigation und Verhalten hinaus.
+
+     

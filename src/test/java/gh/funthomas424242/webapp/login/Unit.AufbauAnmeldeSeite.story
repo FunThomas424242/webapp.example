@@ -10,8 +10,9 @@ Damit ich auch den Modultest mittels BDD automatisiert durchführen kann.
 
 Szenario: Anmeldeseite Seitenelemente prüfen
 Meta:
+@skip
 @themes GUI, modul
-Gegeben sei die Datei login.html.
+Gegeben sei die Datei login/login.html.
 Wenn der Seitentitel lautet Login
 Und die Überschrift Ebene1 mit der Id welcome lautet Anmeldung
 Wenn das Eingabefeld mit Id user existiert
