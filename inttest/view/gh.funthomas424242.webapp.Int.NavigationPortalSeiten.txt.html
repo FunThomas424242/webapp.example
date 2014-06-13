@@ -14,21 +14,19 @@ Meta:
 @author FunThomas424242
 
 Narrative:
-In order to die Navigation der Portalseiten zu definieren
-As a Entwickler
-I want to alle Navigationswege über Stories definieren
-Damit ich die Navigation im Integrationstest prüfen kann.
-Scenario: Start Seite anzeigen
+In order to die Anwendung vollständig benutzen zu können
+As a Koch
+I want to zwischen den einzelnen Seiten navigieren können
+Damit auch an die richtigen Stellen in der Anwendung gelangen kann.
+Scenario: Navigation vom Default zur Welcome Seite
 Gegeben sei die Webserver Übersichtsseite.
 Wenn der erste Link geklickt wird
 Dann wird zur Welcome Seite navigiert.
 
 Scenario: Navigation zur Login Seite
-Gegeben sei als aktuelle Seite die Startseite (welcome page).
+Gegeben sei als aktuelle Seite die Welcome Seite.
 Wenn der Link Anmelden geklickt wird
 Dann wird zur Login Seite navigiert.
-
-Scenario: 
 
 
 

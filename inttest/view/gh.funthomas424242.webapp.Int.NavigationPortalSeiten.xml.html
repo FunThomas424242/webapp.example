@@ -13,22 +13,20 @@
 <property keyword="@" name="author" value="FunThomas424242"/>
 </meta>
 <narrative keyword="Narrative:">
-  <inOrderTo keyword="In order to">die Navigation der Portalseiten zu definieren</inOrderTo>
-  <asA keyword="As a">Entwickler</asA>
-  <iWantTo keyword="I want to">alle Navigationswege &#252;ber Stories definieren
-Damit ich die Navigation im Integrationstest pr&#252;fen kann.</iWantTo>
+  <inOrderTo keyword="In order to">die Anwendung vollst&#228;ndig benutzen zu k&#246;nnen</inOrderTo>
+  <asA keyword="As a">Koch</asA>
+  <iWantTo keyword="I want to">zwischen den einzelnen Seiten navigieren k&#246;nnen
+Damit auch an die richtigen Stellen in der Anwendung gelangen kann.</iWantTo>
 </narrative>
-<scenario keyword="Scenario:" title="Start Seite anzeigen">
+<scenario keyword="Scenario:" title="Navigation vom Default zur Welcome Seite">
 <step outcome="successful">Gegeben sei die Webserver &#220;bersichtsseite.</step>
 <step outcome="successful">Wenn der erste Link geklickt wird</step>
 <step outcome="successful">Dann wird zur Welcome Seite navigiert.</step>
 </scenario>
 <scenario keyword="Scenario:" title="Navigation zur Login Seite">
-<step outcome="successful">Gegeben sei als aktuelle Seite die Startseite (welcome page).</step>
+<step outcome="successful">Gegeben sei als aktuelle Seite die Welcome Seite.</step>
 <step outcome="successful">Wenn der Link <parameter>Anmelden</parameter> geklickt wird</step>
 <step outcome="successful">Dann wird zur Login Seite navigiert.</step>
-</scenario>
-<scenario keyword="Scenario:" title="">
 </scenario>
 </story>
 
