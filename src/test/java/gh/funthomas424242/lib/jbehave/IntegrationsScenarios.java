@@ -16,7 +16,11 @@ import org.jbehave.web.selenium.PropertyWebDriverProvider;
 import org.jbehave.web.selenium.WebDriverProvider;
 import org.jbehave.web.selenium.WebDriverScreenshotOnFailure;
 import org.jbehave.web.selenium.WebDriverSteps;
+import org.junit.runner.RunWith;
 
+import de.codecentric.jbehave.junit.monitoring.JUnitReportingRunner;
+
+@RunWith(JUnitReportingRunner.class)
 public class IntegrationsScenarios extends JUnitStories {
 
     final Configuration configuration;

@@ -107,6 +107,12 @@
             <version>1.8.3</version>
         </dependency>
         <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>org.jbehave</groupId>
             <artifactId>jbehave-core</artifactId>
             <version>${jbehave.version}</version>
@@ -116,6 +122,12 @@
             <groupId>org.jbehave.web</groupId>
             <artifactId>jbehave-web-selenium</artifactId>
             <version>3.6-SNAPSHOT</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>jbehave-junit-runner</artifactId>
+            <version>1.1.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>

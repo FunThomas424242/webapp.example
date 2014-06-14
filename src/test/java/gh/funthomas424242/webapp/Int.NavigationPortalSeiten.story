@@ -18,7 +18,6 @@ Dann wird zur Welcome Seite navigiert.
 
 Szenario: Navigation zur Login Seite
 Meta:
-@skip
 @themes GUI, integration
 Gegeben sei als aktuelle Seite die Welcome Seite.
 Wenn der Link Anmelden geklickt wird
