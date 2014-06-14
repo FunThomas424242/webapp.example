@@ -21,10 +21,6 @@ Und das Passwordfeld mit Id password existiert
 Dann war der Test erfolgreich.
 
 Gegeben sei die Datei login/login.html.
-<<<<<<< HEAD
 Wenn der Button mit der Id anmelden vom Typ submit und der Beschriftung Anmelden existiert
-=======
-Wenn der Button mit der Id ok vom Typ submit und der Beschriftung Anmelden existiert
->>>>>>> branch 'master' of https://github.com/FunThomas424242/webapp.example.git
 Dann war der Test erfolgreich.
 
