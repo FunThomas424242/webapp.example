@@ -1,8 +1,21 @@
 'use strict';
 // definieren eines Moduls
-var helloWorldModule = angular.module("helloWorldModule", []);
+var loginModule = angular.module("loginModule", []);
  
 // hinzufügen eines Controllers zum Modul
-helloWorldModule.controller("HelloWorldController", function ($scope) {
-   $scope.name = "World";
+loginModule.controller("LoginController", function ($scope, $http) {
+   $scope.user = {};
+   
+   $scope.loginUser = function() {
+   
+   $http({
+	      method: 'POST',
+	      url: 'http://localhost:8080/webapp.example/action/login',
+	      headers: {'Content-Type': 'application/json'},
+	      data:  $scope.user
+	    }).success(function (data) 
+	      {
+	    	$scope.message=data;
+	      });
+   };
 });

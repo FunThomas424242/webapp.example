@@ -18,16 +18,8 @@
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>gh.funthomas424242.webapp.login.LoginServlet</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>UserServlet</servlet-name>
-        <servlet-class>gh.funthomas424242.webapp.login.UserServlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/action/login</url-pattern>
-    </servlet-mapping>
-     <servlet-mapping>
-        <servlet-name>UserServlet</servlet-name>
-        <url-pattern>/action/user</url-pattern>
     </servlet-mapping>
 </web-app>

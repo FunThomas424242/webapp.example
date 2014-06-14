@@ -1,7 +1,7 @@
 package gh.funthomas424242.webapp.selenium;
 
 import gh.funthomas424242.lib.selenium.SeleniumPage;
-import gh.funthomas424242.webapp.login.AnmeldeSeite;
+import gh.funthomas424242.webapp.login.LoginPage;
 import gh.funthomas424242.webapp.welcome.EntryPage;
 import gh.funthomas424242.webapp.welcome.WelcomePage;
 
@@ -47,7 +47,7 @@ public class SeleniumSteps extends PerStoriesWebDriverSteps {
 
     @Given("sei als aktuelle Seite die Loginseite.")
     public void atLoginFile() {
-        this.currentPage = new AnmeldeSeite(getDriverProvider()).open();
+        this.currentPage = new LoginPage(getDriverProvider()).open();
     }
 
     @When("der erste Link geklickt wird")
@@ -124,7 +124,7 @@ public class SeleniumSteps extends PerStoriesWebDriverSteps {
 
     @Then("wird zur Login Seite navigiert.")
     public void currentPageIsLogin() {
-        Assert.assertEquals(AnmeldeSeite.PAGE_URL,
+        Assert.assertEquals(LoginPage.PAGE_URL,
                 this.currentPage.getCurrentUrl());
     }
 

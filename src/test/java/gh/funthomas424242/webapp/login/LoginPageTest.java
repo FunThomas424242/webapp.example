@@ -5,7 +5,6 @@ import java.io.File;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import com.gargoylesoftware.htmlunit.WebClient;
@@ -15,7 +14,7 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.html.HtmlPasswordInput;
 import com.gargoylesoftware.htmlunit.html.HtmlTextInput;
 
-public class AnmeldeSeiteTest {
+public class LoginPageTest {
 
     static final WebClient webClient = new WebClient();
 
@@ -39,24 +38,23 @@ public class AnmeldeSeiteTest {
     }
 
     @Test
-    @Ignore
     public void checkElements() {
 
         // Titel prüfen
-        Assert.assertEquals("Login", AnmeldeSeiteTest.page.getTitleText());
+        Assert.assertEquals("Login", LoginPageTest.page.getTitleText());
 
         // Überschrift prüfen
-        final HtmlHeading1 ueberschrift = AnmeldeSeiteTest.page
+        final HtmlHeading1 ueberschrift = LoginPageTest.page
                 .getHtmlElementById("welcome");
         Assert.assertEquals("Anmeldung", ueberschrift.getTextContent());
 
         // Eingabefeld user prüfen
-        final HtmlTextInput userField = AnmeldeSeiteTest.page
+        final HtmlTextInput userField = LoginPageTest.page
                 .getHtmlElementById("user");
         Assert.assertNotNull(userField);
 
         // Eingabefeld password prüfen
-        final HtmlPasswordInput passwordField = AnmeldeSeiteTest.page
+        final HtmlPasswordInput passwordField = LoginPageTest.page
                 .getHtmlElementById("password");
         Assert.assertNotNull(passwordField);
 
@@ -65,21 +63,6 @@ public class AnmeldeSeiteTest {
                 .getHtmlElementById("ok");
         Assert.assertEquals("submit", anmeldenButton.getTypeAttribute());
         Assert.assertEquals("Anmelden", anmeldenButton.getTextContent());
-
-        // // Button mit Hinweis Anmeldung erfolgreich
-        // final HtmlLabel okMeldung = (HtmlLabel) page
-        // .getHtmlElementById("meldung_ok");
-        // Assert.assertEquals("Ihre Anmeldung war erfolgreich.",
-        // okMeldung.asText());
-        // Assert.assertEquals("hide", okMeldung.getAttribute("visible"));
-        //
-        // // Button mit Hinweis Anmeldung fehlgeschlagen
-        // final HtmlLabel errorMeldung = (HtmlLabel) page
-        // .getHtmlElementById("meldung_error");
-        // Assert.assertEquals(
-        // "Ihre Anmeldung ist nicht erfolgt - bitte Zugangsdaten prüfen.",
-        // errorMeldung.asText());
-        // Assert.assertEquals("hide", errorMeldung.getAttribute("visible"));
 
     }
 }

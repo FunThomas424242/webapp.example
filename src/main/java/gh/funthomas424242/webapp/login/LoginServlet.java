@@ -1,70 +1,63 @@
 package gh.funthomas424242.webapp.login;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+@SuppressWarnings("serial")
+@WebServlet("/action/login")
 public class LoginServlet extends HttpServlet {
 
-    // Runs when the servlet is loaded onto the server.
-    @Override
-    public void init() {
-        //
+    public LoginServlet() {
+        super();
     }
 
-    // Runs on a thread whenever there is HTTP GET request
-    // Take 2 arguments, corresponding to HTTP request and response
     @Override
-    public void doGet(final HttpServletRequest request,
-            final HttpServletResponse response) throws IOException,
-            ServletException {
-
-        final LoginBean loginBean = new LoginBean();
-        request.setAttribute("loginBean", loginBean);
-
-        forwardToLoginPage(request, response);
-
-    }
-
-    // Runs as a thread whenever there is HTTP POST request
-    @Override
-    public void doPost(final HttpServletRequest request,
-            final HttpServletResponse response) throws IOException,
-            ServletException {
-
-        final String user = request.getParameter("user");
-        final String password = request.getParameter("password");
-
-        final LoginBean loginBean = new LoginBean();
-
-        if ((user != null) && (password != null) && !user.isEmpty()
-                && !password.isEmpty()) {
-            loginBean.setMeldung("Ihre Anmeldung war erfolgreich.");
-        } else {
-            loginBean.setMeldung("Bitte prüfen Sie Ihre Zugangsdaten.");
-        }
-
-        request.setAttribute("loginBean", loginBean);
-
-        forwardToLoginPage(request, response);
-    }
-
-    // Runs when the servlet is unloaded from the server.
-    @Override
-    public void destroy() {
-        //
-    }
-
-    private void forwardToLoginPage(final HttpServletRequest request,
+    protected void doPost(final HttpServletRequest request,
             final HttpServletResponse response) throws ServletException,
             IOException {
-        final RequestDispatcher dispatcher = request
-                .getRequestDispatcher("/login/login.html");
-        dispatcher.forward(request, response);
-    }
 
+        final StringBuffer sb = new StringBuffer();
+
+        try {
+            final BufferedReader reader = request.getReader();
+            String line = null;
+            while ((line = reader.readLine()) != null) {
+                sb.append(line);
+            }
+        } catch (final Exception e) {
+            e.printStackTrace();
+        }
+
+        final JSONParser parser = new JSONParser();
+        JSONObject joUser = null;
+        try {
+            joUser = (JSONObject) parser.parse(sb.toString());
+        } catch (final ParseException e) {
+            e.printStackTrace();
+        }
+
+        final String userName = (String) joUser.get("name");
+        final String password = (String) joUser.get("password");
+        String message = "Sie sind als " + userName + " angemeldet.";
+        if ((userName == null) || userName.trim().isEmpty()
+                || (password == null) || password.trim().isEmpty()) {
+            message = "Keine Anmeldung erfolgt - Bitte prüfen Sie Ihre Zugangsdaten.";
+        }
+        response.setContentType("text/html");
+        final PrintWriter out = response.getWriter();
+        out.write(message);
+        out.flush();
+        out.close();
+    }
 }

@@ -8,16 +8,31 @@
  src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
 <script type="text/javascript" src="LoginController.js"></script>
 </head>
+
 <body>
 
  <h1 id="welcome">Anmeldung</h1>
- <div ng:app="helloWorldModule">
-  <div ng:controller="HelloWorldController">
-   <label for="name">Name:</label> <input type="text" id="name"
-    ng:model="name" required="required" />
-   <hr />
-   <div>Hello {{name}}!</div>
-  </div>
+
+ <div ng:app="loginModule">
+ 
+   <form ng:controller="LoginController" ng:submit="loginUser()">
+
+    <div ng:model="message">{{message}}</div>
+
+    <label for="user">Name:</label> <input type="text" id="user"
+     ng:model="user.name" required="required" /> <label for="password">Passwort:</label>
+    <input type="password" id="password" ng:model="user.password"
+     required="required" />
+    <hr />
+   
+   </div>
+
+   <button id="ok" type="submit" class="btn btn-primary">Anmelden</button>
+  </form>
  </div>
+
+
+
 </body>
+
 </html>

@@ -15,7 +15,7 @@ Meta:
 Gegeben sei als aktuelle Seite die Loginseite.
 Wenn in das Textfeld user der Text Huluvu424242 eingegeben wird
 Und in das Passwordfeld password der Text Geheim eingegeben wird
-Dann wird die Meldung Ihre Anmeldung war erfolgreich angezeigt.
+Dann wird die Meldung Sie sind als Huluvu424242 angemeldet. angezeigt.
 
 Szenario: Keine Anmeldung
 Meta:
@@ -25,6 +25,47 @@ Gegeben sei als aktuelle Seite die Loginseite.
 Wenn in das Textfeld user nichts eingegeben wird
 Und in das Passwordfeld password nichts eingegeben wird
 Dann wird die Meldung Ihre Anmeldung war nicht erfolgreich - Bitte prüfen Sie Ihre Zugangsdaten. angezeigt.
+
+
+Szenario: Erfolgreiche Anmeldung
+Meta:
+@skip
+@themes GUI, modul
+Gegeben sei die Datei login.html.
+
+
+
+ // // Button mit Hinweis Anmeldung erfolgreich
+        // final HtmlLabel okMeldung = (HtmlLabel) page
+        // .getHtmlElementById("meldung_ok");
+        // Assert.assertEquals("Ihre Anmeldung war erfolgreich.",
+        // okMeldung.asText());
+        // Assert.assertEquals("hide", okMeldung.getAttribute("visible"));
+        //
+        // // Button mit Hinweis Anmeldung fehlgeschlagen
+        // final HtmlLabel errorMeldung = (HtmlLabel) page
+        // .getHtmlElementById("meldung_error");
+        // Assert.assertEquals(
+        // "Ihre Anmeldung ist nicht erfolgt - bitte Zugangsdaten prüfen.",
+        // errorMeldung.asText());
+        // Assert.assertEquals("hide", errorMeldung.getAttribute("visible"));
+
+
+Szenario: sonstiges
+ // Button mit Hinweis Anmeldung erfolgreich
+        // final HtmlLabel okMeldung = (HtmlLabel) page
+        // .getHtmlElementById("meldung_ok");
+        // Assert.assertEquals("Ihre Anmeldung war erfolgreich.",
+        // okMeldung.asText());
+        // Assert.assertEquals("hide", okMeldung.getAttribute("visible"));
+        //
+        // // Button mit Hinweis Anmeldung fehlgeschlagen
+        // final HtmlLabel errorMeldung = (HtmlLabel) page
+        // .getHtmlElementById("meldung_error");
+        // Assert.assertEquals(
+        // "Ihre Anmeldung ist nicht erfolgt - bitte Zugangsdaten prüfen.",
+        // errorMeldung.asText());
+        // Assert.assertEquals("hide", errorMeldung.getAttribute("visible"));
 
 
 
