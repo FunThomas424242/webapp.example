@@ -1,5 +1,10 @@
 Quellen
 =======
+http://www.doublecloud.org/2013/09/angular-javascript-framework-interacting-with-java-servlet-backend/
+http://stackoverflow.com/questions/15047556/angularjs-post-to-server
+http://stackoverflow.com/questions/24108520/how-to-populate-drop-down-values-using-servlet-response
+http://www.codemercenary.de/2010/04/post-parameter-in-javascript-benutzen.html
+http://balusc.blogspot.de/2009/05/javajspjsf-and-javascript.html
 http://blog.desarrolloagil.es/2013/05/developing-javascript-web-apps-with.html
 http://www.web-spirit.de/tutorial/html-formulare-effektiv-gestalten
 http://proglang.informatik.uni-freiburg.de/teaching/inetprog/2006/v-2006-06-26.pdf

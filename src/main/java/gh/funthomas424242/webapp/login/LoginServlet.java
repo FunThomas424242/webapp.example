@@ -63,7 +63,7 @@ public class LoginServlet extends HttpServlet {
             final HttpServletResponse response) throws ServletException,
             IOException {
         final RequestDispatcher dispatcher = request
-                .getRequestDispatcher("/login/login.jsp");
+                .getRequestDispatcher("/login/login.html");
         dispatcher.forward(request, response);
     }
 
