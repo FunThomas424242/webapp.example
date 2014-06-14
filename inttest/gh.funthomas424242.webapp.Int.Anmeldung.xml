@@ -3,9 +3,23 @@
 <property keyword="@" name="author" value="FunThomas424242"/>
 </meta>
 <narrative keyword="Narrative:">
-  <inOrderTo keyword="In order to">Kochrezepte erfassen zu k&#246;nnen</inOrderTo>
+  <inOrderTo keyword="In order to">mich am Portal anzumelden</inOrderTo>
   <asA keyword="As a">Koch</asA>
-  <iWantTo keyword="I want to">mich am Portal anmelden k&#246;nnen
+  <iWantTo keyword="I want to">meine Zugangsdaten eingeben 
 Damit ich die Funktionen der Webanwendung nutzen kann.</iWantTo>
 </narrative>
 <scenario keyword="Scenario:" title="Erfolgreiche Anmeldung">
+<step outcome="successful">Gegeben sei als aktuelle Seite die Loginseite.</step>
+<step outcome="successful">Wenn in das Textfeld <parameter>user</parameter> der Text <parameter>Huluvu424242</parameter> eingegeben wird</step>
+<step outcome="successful">Wenn in das Passwordfeld <parameter>password</parameter> der Text <parameter>Geheim</parameter> eingegeben wird</step>
+<step outcome="successful">Und der Button <parameter>anmelden</parameter> geklickt wird</step>
+<step outcome="successful">Dann wird die Meldung <parameter>message</parameter> mit <parameter>Sie sind als Huluvu424242 angemeldet.</parameter> angezeigt.</step>
+</scenario>
+<scenario keyword="Scenario:" title="Keine Anmeldung">
+<step outcome="successful">Gegeben sei als aktuelle Seite die Loginseite.</step>
+<step outcome="successful">Wenn in das Textfeld <parameter>user</parameter> Leerzeichen eingegeben werden</step>
+<step outcome="successful">Wenn in das Passwordfeld <parameter>password</parameter> Leerzeichen eingegeben werden</step>
+<step outcome="successful">Und der Button <parameter>anmelden</parameter> geklickt wird</step>
+<step outcome="successful">Dann wird die Meldung <parameter>message</parameter> mit <parameter>Ihre Anmeldung war nicht erfolgreich - Bitte pr&#252;fen Sie Ihre Zugangsdaten.</parameter> angezeigt.</step>
+</scenario>
+</story>

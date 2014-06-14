@@ -27,9 +27,31 @@ Damit ich auch den Modultest mittels BDD automatisiert durchf&#252;hren kann.</i
 <step outcome="successful">Wenn das Eingabefeld mit Id <parameter>user</parameter> existiert</step>
 <step outcome="successful">Und das Passwordfeld mit Id <parameter>password</parameter> existiert</step>
 <step outcome="successful">Dann war der Test erfolgreich.</step>
-<step outcome="successful">Gegeben sei die Datei login/login.html.</step>
-<step outcome="successful">Wenn der Button mit der Id <parameter>ok</parameter> vom Typ <parameter>submit</parameter> und der Beschriftung <parameter>Anmelden</parameter> existiert</step>
-<step outcome="successful">Dann war der Test erfolgreich.</step>
+<step outcome="pending" keyword="PENDING">Gegeben sei die Datei login/login.html.
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</step>
+<step outcome="pending" keyword="PENDING">Wenn der Button mit der Id anmelden vom Typ submit und der Beschriftung Anmelden existiert
+=======</step>
+<step outcome="pending" keyword="PENDING">Wenn der Button mit der Id ok vom Typ submit und der Beschriftung Anmelden existiert
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; branch &apos;master&apos; of https://github.com/FunThomas424242/webapp.example.git</step>
+<step outcome="notPerformed" keyword="NOT PERFORMED">Dann war der Test erfolgreich.</step>
+<pendingMethod>@Given(&quot;sei die Datei login/login.html.\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD&quot;)
+@Pending
+public void givenSeiDieDateiLoginloginhtmlHEAD() {
+  // AUSSTEHEND
+}
+</pendingMethod>
+<pendingMethod>@When(&quot;der Button mit der Id anmelden vom Typ submit und der Beschriftung Anmelden existiert\n=======&quot;)
+@Pending
+public void whenDerButtonMitDerIdAnmeldenVomTypSubmitUndDerBeschriftungAnmeldenExistiert() {
+  // AUSSTEHEND
+}
+</pendingMethod>
+<pendingMethod>@When(&quot;der Button mit der Id ok vom Typ submit und der Beschriftung Anmelden existiert\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; branch &apos;master&apos; of https://github.com/FunThomas424242/webapp.example.git&quot;)
+@Pending
+public void whenDerButtonMitDerIdOkVomTypSubmitUndDerBeschriftungAnmeldenExistiertBranchmasterOfHttpsgithubcomFunThomas424242webappexamplegit() {
+  // AUSSTEHEND
+}
+</pendingMethod>
 </scenario>
 </story>
 

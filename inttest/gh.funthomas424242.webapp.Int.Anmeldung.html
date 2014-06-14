@@ -6,10 +6,25 @@
 <div class="property">@author FunThomas424242</div>
 </div>
 <div class="narrative"><h2>Narrative:</h2>
-<div class="element inOrderTo"><span class="keyword inOrderTo">In order to</span> Kochrezepte erfassen zu k&ouml;nnen</div>
+<div class="element inOrderTo"><span class="keyword inOrderTo">In order to</span> mich am Portal anzumelden</div>
 <div class="element asA"><span class="keyword asA">As a</span> Koch</div>
-<div class="element iWantTo"><span class="keyword iWantTo">I want to</span> mich am Portal anmelden k&ouml;nnen
+<div class="element iWantTo"><span class="keyword iWantTo">I want to</span> meine Zugangsdaten eingeben 
 Damit ich die Funktionen der Webanwendung nutzen kann.</div>
 </div>
 <div class="scenario">
 <h2>Scenario: Erfolgreiche Anmeldung</h2>
+<div class="step successful">Gegeben sei als aktuelle Seite die Loginseite.</div>
+<div class="step successful">Wenn in das Textfeld <span class="step parameter">user</span> der Text <span class="step parameter">Huluvu424242</span> eingegeben wird</div>
+<div class="step successful">Wenn in das Passwordfeld <span class="step parameter">password</span> der Text <span class="step parameter">Geheim</span> eingegeben wird</div>
+<div class="step successful">Und der Button <span class="step parameter">anmelden</span> geklickt wird</div>
+<div class="step successful">Dann wird die Meldung <span class="step parameter">message</span> mit <span class="step parameter">Sie sind als Huluvu424242 angemeldet.</span> angezeigt.</div>
+</div>
+<div class="scenario">
+<h2>Scenario: Keine Anmeldung</h2>
+<div class="step successful">Gegeben sei als aktuelle Seite die Loginseite.</div>
+<div class="step successful">Wenn in das Textfeld <span class="step parameter">user</span> Leerzeichen eingegeben werden</div>
+<div class="step successful">Wenn in das Passwordfeld <span class="step parameter">password</span> Leerzeichen eingegeben werden</div>
+<div class="step successful">Und der Button <span class="step parameter">anmelden</span> geklickt wird</div>
+<div class="step successful">Dann wird die Meldung <span class="step parameter">message</span> mit <span class="step parameter">Ihre Anmeldung war nicht erfolgreich - Bitte pr&uuml;fen Sie Ihre Zugangsdaten.</span> angezeigt.</div>
+</div>
+</div>

@@ -18,7 +18,29 @@ Wenn das Eingabefeld mit Id user existiert
 Und das Passwordfeld mit Id password existiert
 Dann war der Test erfolgreich.
 Gegeben sei die Datei login/login.html.
+<<<<<<< HEAD (PENDING)
+Wenn der Button mit der Id anmelden vom Typ submit und der Beschriftung Anmelden existiert
+======= (PENDING)
 Wenn der Button mit der Id ok vom Typ submit und der Beschriftung Anmelden existiert
-Dann war der Test erfolgreich.
+>>>>>>> branch 'master' of https://github.com/FunThomas424242/webapp.example.git (PENDING)
+Dann war der Test erfolgreich. (NOT PERFORMED)
+@Given("sei die Datei login/login.html.\n<<<<<<< HEAD")
+@Pending
+public void givenSeiDieDateiLoginloginhtmlHEAD() {
+  // AUSSTEHEND
+}
+
+@When("der Button mit der Id anmelden vom Typ submit und der Beschriftung Anmelden existiert\n=======")
+@Pending
+public void whenDerButtonMitDerIdAnmeldenVomTypSubmitUndDerBeschriftungAnmeldenExistiert() {
+  // AUSSTEHEND
+}
+
+@When("der Button mit der Id ok vom Typ submit und der Beschriftung Anmelden existiert\n>>>>>>> branch 'master' of https://github.com/FunThomas424242/webapp.example.git")
+@Pending
+public void whenDerButtonMitDerIdOkVomTypSubmitUndDerBeschriftungAnmeldenExistiertBranchmasterOfHttpsgithubcomFunThomas424242webappexamplegit() {
+  // AUSSTEHEND
+}
+
 
 
