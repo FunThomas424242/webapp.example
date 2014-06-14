@@ -1,0 +1,17 @@
+
+(gh/funthomas424242/webapp/welcome/Unit.AufbauWelcomePage.story)
+Meta:
+@author FunThomas424242
+
+Narrative:
+In order to den Aufbau der Welcome Seite definieren zu können
+As a Entwickler
+I want to alle Modultests als Stories definieren
+Damit ich auch den Modultest mittels BDD automatisiert durchführen kann.
+Scenario: Welcome Seite Kontextbeschreibung
+Gegeben sei die Datei index.html.
+Wenn der Seitentitel lautet Willkommen
+Und die Überschrift Ebene1 mit der Id welcome lautet Beispiel Web-Anwendung
+Dann war der Test erfolgreich.
+
+
