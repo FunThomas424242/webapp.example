@@ -60,6 +60,7 @@ public class LoginPageTest {
 
         // Button mit Text Anmelden
         final HtmlButton anmeldenButton = (HtmlButton) page
+
                 .getHtmlElementById("anmelden");
         Assert.assertEquals("submit", anmeldenButton.getTypeAttribute());
         Assert.assertEquals("Anmelden", anmeldenButton.getTextContent());
