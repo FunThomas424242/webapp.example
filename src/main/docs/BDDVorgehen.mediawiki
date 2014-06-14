@@ -31,10 +31,11 @@ TDD lässt sich einfach auf die Ebene des Integrationstest ausweiten.
 Für die Entwicklung von Webanwendungen scheint folgende Werkzeugkette geeignet zu sein:
 * Github zur Ablage der Repositories des SCM's (git)
 * Java, HTML, Javascript als Programmiersprachen
+* angularJS als JavaScript Framework, es trägt zur Lesbarkeit bei und bietet Anbindung an Java Servlets ohne JSP Seiten schreiben zu müssen (JSP Seiten sind schwer testbar).
 * Eclipse als IDE
 * Maven als Buildtool
 * Jetty als Testserver
-* JBehave, Selenium, JUnit und HTMLUnit als Testwerkzeuge
+* JBehave, Selenium, JUnit und HTMLUnit, Saga, Jasmine als Testwerkzeuge
 * Travis-ci als Continous Build Provider
 * BinTray zur Veröffentlichung der Binaries
 --
