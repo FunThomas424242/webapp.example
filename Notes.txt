@@ -27,6 +27,9 @@ Erfahrungen
    1. Versuch angularJS weils hipp ist und man auch Apps damit bauen kann.
    2. Aktueller Wissensstand keine Ahnung von dem Zeug -> früher Giftschrank
    3. Es kann so schlecht nicht sein - es hat eine Homepage ;) https://angularjs.org/ und stammt von google :)
+8. github/maven-sit-plugin benötigt immer Zugriff auf api.github.com und muss somit aus den Build raus wenn kein Internet zu Verfügung steht.
+9. Es empfielt sich das angular.js Skript als Kopie ins Projekt einzubinden, damit man weder vom Internet noch vom Host abhängig ist. Die Abhängigkeit wird bereits beim Test und damit im Build benötigt.
+
    
    
 Testbarkeit

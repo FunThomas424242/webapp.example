@@ -1,13 +1,13 @@
 Meta:
 @author FunThomas424242
 Erzählung:
-Um Rezepte erfassen zu können
-Als Koch 
-Möchte ich relevanten Daten zum Rezept erfassen können
-Damit diese später als Datei exportieren kann.
+Um die Login Seite implementieren zu können
+Als Entwickler
+Möchte ich alle Modultests als Stories definieren
+Damit ich auch den Modultest mittels BDD automatisiert durchführen kann. 
 
 
-Szenario: Rezeptseite Seitenelemente prüfen
+Szenario: Anmeldeseite Seitenelemente prüfen
 Meta:
 @themes GUI, modul
 Gegeben sei die Datei login/login.html.

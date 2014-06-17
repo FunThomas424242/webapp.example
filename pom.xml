@@ -72,12 +72,65 @@
             </activation>
         </profile>
         <profile>
+            <id>online</id>
+            <!-- use if your internet switch is on -->
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.github.github</groupId>
+                        <artifactId>site-maven-plugin</artifactId>
+                        <version>${github.maventools.version}</version>
+                        <configuration>
+                            <message>Building
+                                site for ${project.version}</message>
+                            <dryRun>${testrun}</dryRun>
+                            <noJekyll>true</noJekyll>
+                            <merge>true</merge>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>site</goal>
+                                </goals>
+                                <phase>install</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <!-- used to build at travis-ci -->
             <id>remote</id>
             <properties>
                 <github.global.userName>${env.USER}</github.global.userName>
                 <github.global.password>${env.PASSWORD}</github.global.password>
                 <testrun>false</testrun>
             </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.github.github</groupId>
+                        <artifactId>site-maven-plugin</artifactId>
+                        <version>${github.maventools.version}</version>
+                        <configuration>
+                            <message>Building
+                                site for ${project.version}</message>
+                            <dryRun>${testrun}</dryRun>
+                            <noJekyll>true</noJekyll>
+                            <merge>true</merge>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>site</goal>
+                                </goals>
+                                <phase>install</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
     </profiles>
 
@@ -162,26 +215,6 @@
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
-            </plugin>
-            <plugin>
-                <groupId>com.github.github</groupId>
-                <artifactId>site-maven-plugin</artifactId>
-                <version>${github.maventools.version}</version>
-                <configuration>
-                    <message>Building
-                        site for ${project.version}</message>
-                    <dryRun>${testrun}</dryRun>
-                    <noJekyll>true</noJekyll>
-                    <merge>true</merge>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>site</goal>
-                        </goals>
-                        <phase>install</phase>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>org.jbehave</groupId>
