@@ -39,7 +39,6 @@ public class HtmlUnitSteps extends Steps {
 
     @Given("sei die Datei $fileName.")
     public void atFile(final String fileName) throws Exception {
-        System.out.println("GET:" + this.filePathPrefix + fileName);
         this.page = webClient.getPage(this.filePathPrefix + fileName);
     }
 
