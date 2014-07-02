@@ -1,7 +1,5 @@
 package gh.funthomas424242.lib.htmlunit;
 
-import gh.funthomas424242.lib.jbehave.PagePfadBuilder;
-
 import org.jbehave.core.annotations.AfterScenario;
 import org.jbehave.core.annotations.BeforeScenario;
 import org.jbehave.core.annotations.Given;
@@ -23,11 +21,15 @@ public class HtmlUnitSteps extends Steps {
 
     String filePathPrefix;
 
-    static HtmlPage page;
+    protected HtmlPage page;
+
+    public HtmlUnitSteps(final String pathPräfix) {
+        this.filePathPrefix = pathPräfix;
+    }
 
     @BeforeScenario
     public void setUpStory() {
-        this.filePathPrefix = new PagePfadBuilder().getLocalPathPräfix();
+
     }
 
     @AfterScenario
@@ -37,35 +39,38 @@ public class HtmlUnitSteps extends Steps {
 
     @Given("sei die Datei $fileName.")
     public void atFile(final String fileName) throws Exception {
-        page = webClient.getPage(this.filePathPrefix + fileName);
+        System.out.println("GET:" + this.filePathPrefix + fileName);
+        this.page = webClient.getPage(this.filePathPrefix + fileName);
     }
 
     @When("der Seitentitel lautet $titel")
     public void anPageTitel(final String titel) {
-        Assert.assertEquals(titel, page.getTitleText());
+        Assert.assertEquals(titel, this.page.getTitleText());
     }
 
     @When("die Überschrift Ebene1 mit der Id $id lautet $text")
     public void anHeading1(final String id, final String text) {
-        final HtmlHeading1 ueberschrift = page.getHtmlElementById("welcome");
+        final HtmlHeading1 ueberschrift = this.page
+                .getHtmlElementById("welcome");
         Assert.assertEquals(text, ueberschrift.getTextContent());
     }
 
     @When("das Eingabefeld mit Id $id existiert")
     public void anInputField(final String id) {
-        final HtmlTextInput userField = page.getHtmlElementById(id);
+        final HtmlTextInput userField = this.page.getHtmlElementById(id);
         Assert.assertNotNull(userField);
     }
 
     @When("das Passwordfeld mit Id $id existiert")
     public void anPasswordField(final String id) {
-        final HtmlPasswordInput passwordField = page.getHtmlElementById(id);
+        final HtmlPasswordInput passwordField = this.page
+                .getHtmlElementById(id);
         Assert.assertNotNull(passwordField);
     }
 
     @When("der Button mit der Id $id vom Typ $typ und der Beschriftung $text existiert")
     public void anButton(final String id, final String typ, final String text) {
-        final HtmlButton anmeldenButton = (HtmlButton) page
+        final HtmlButton anmeldenButton = (HtmlButton) this.page
                 .getHtmlElementById(id);
         Assert.assertEquals(typ, anmeldenButton.getTypeAttribute());
         Assert.assertEquals(text, anmeldenButton.getTextContent());

@@ -1,5 +1,6 @@
 package gh.funthomas424242.lib.jbehave;
 
+import gh.funthomas424242.lib.htmlunit.HtmlUnitSteps;
 import gh.funthomas424242.webapp.selenium.SeleniumSteps;
 
 import java.util.List;
@@ -50,8 +51,9 @@ public class IntegrationsScenarios extends JUnitStories {
         final WebDriverSteps lifecycleSteps = new PerStoriesWebDriverSteps(
                 driverProvider);
         final SeleniumSteps steps = new SeleniumSteps(driverProvider);
-        return new InstanceStepsFactory(this.configuration(), steps,
-                lifecycleSteps, new WebDriverScreenshotOnFailure(
+        return new InstanceStepsFactory(this.configuration(),
+                new HtmlUnitSteps(new PagePfadBuilder().getRemotePathPräfix()),
+                steps, lifecycleSteps, new WebDriverScreenshotOnFailure(
                         driverProvider, this.configuration()
                                 .storyReporterBuilder()));
     }

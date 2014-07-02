@@ -39,8 +39,8 @@ public class ModulScenarios extends JUnitStories {
     @Override
     public InjectableStepsFactory stepsFactory() {
         return new InstanceStepsFactory(this.configuration(),
-                new HtmlUnitSteps(), this.configuration()
-                        .storyReporterBuilder());
+                new HtmlUnitSteps(new PagePfadBuilder().getLocalPathPräfix()),
+                this.configuration().storyReporterBuilder());
     }
 
     @Override
