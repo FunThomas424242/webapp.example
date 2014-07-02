@@ -1,6 +1,6 @@
 package gh.funthomas424242.lib.htmlunit;
 
-import java.io.File;
+import gh.funthomas424242.lib.jbehave.PagePfadBuilder;
 
 import org.jbehave.core.annotations.AfterScenario;
 import org.jbehave.core.annotations.BeforeScenario;
@@ -27,11 +27,7 @@ public class HtmlUnitSteps extends Steps {
 
     @BeforeScenario
     public void setUpStory() {
-        final String userDir = System.getProperty("user.dir");
-        final String testDir = userDir + File.separator + "src"
-                + File.separator + "main" + File.separator + "webapp"
-                + File.separator;
-        this.filePathPrefix = testDir;
+        this.filePathPrefix = new PagePfadBuilder().getLocalPathPräfix();
     }
 
     @AfterScenario
@@ -41,7 +37,7 @@ public class HtmlUnitSteps extends Steps {
 
     @Given("sei die Datei $fileName.")
     public void atFile(final String fileName) throws Exception {
-        page = webClient.getPage("file:///" + this.filePathPrefix + fileName);
+        page = webClient.getPage(this.filePathPrefix + fileName);
     }
 
     @When("der Seitentitel lautet $titel")
