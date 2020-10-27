@@ -3,7 +3,10 @@ env:
   - secure: Bga6s3Jsri1HK2w5GKRfBheHJA14vH/RcMsy5BGCTeKDzNiADME0GNE2fCe2Y8PM+qyHQAi374f6ucwciRVpbgcWhew84bFgAZ7bFJd0ty+H4PQQjH8dCAOHacynLPyp2CKni8wtH5Reh58hpwa/21+yU7REcD2FJHGG5OBFcTc=
   - secure: ZCxEY5/7ap9YH+DfQ0HRh7DS+yAfNQvknKyKDQ0RX5iDkuz4y3+ylgwSfzMun1C5DuKB4izdHIj0v+AJxejtrrJ7j5xJPW8/gW/OCBq0/R7j286q7un1KarAXyF/NJJ37nlIi8rjMQGOxYcJ20FGptWNpZIi2zmLQkMjA7FTsxk=
 jdk:
-- openjdk9
+  - oraclejdk9
+  - oraclejdk11
+  - openjdk11
+  
 before_install:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
