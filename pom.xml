@@ -500,7 +500,7 @@
                 <plugin>
                     <groupId>org.apache.ant</groupId>
                     <artifactId>ant</artifactId>
-                    <version>1.8.1</version>
+                    <version>1.9.15</version>
                 </plugin>
                 <plugin>
                     <groupId>com.github.timurstrekalov</groupId>
